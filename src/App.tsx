@@ -10,23 +10,114 @@ export default function App() {
   const navItems: { id: Page; label: string }[] = [
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Product Catalog' },
-    { id: 'fillets', label: 'Our Goods' },
+    { id: 'fillets', label: 'Our Selection' },
     { id: 'order', label: 'How to Order' },
     { id: 'about', label: 'About Us' },
     { id: 'location', label: 'Location & Hours' },
   ];
 
-  const allGoods = [
-    { name: "Nile Perch fillets", price: "KSh 1,000 per kg" },
-    { name: "Tilapia fillets", price: "KSh 1,600 per kg" },
-    { name: "Fresh whole Nile Perch", price: "KSh 500 per kg" },
-    { name: "Fresh whole Tilapia", price: "KSh 450 per kg" },
-    { name: "Fresh whole catfish", price: "KSh 400 per kg" },
-    { name: "Fresh whole mad fish", price: "KSh 400 per kg" },
-    { name: "Cod liver oil – 500 ml", price: "KSh 600 per bottle" },
-    { name: "Fried tilapia", price: "price varies by size" },
-    { name: "Fried Nile Perch", price: "price varies by size" },
-    { name: "Varieties of dried fish", price: "sold per kg" }
+  const simpleCatalog = [
+    {
+      title: "Fish Fillets",
+      items: [
+        { name: "Nile Perch fillets", price: "KSh 1,000 per kg" },
+        { name: "Tilapia fillets", price: "KSh 1,600 per kg" }
+      ]
+    },
+    {
+      title: "Fresh Whole Fish",
+      items: [
+        { name: "Fresh whole Nile Perch", price: "KSh 500 per kg" },
+        { name: "Fresh whole Tilapia", price: "KSh 450 per kg" },
+        { name: "Fresh whole catfish", price: "KSh 400 per kg" },
+        { name: "Fresh whole mad fish", price: "KSh 400 per kg" }
+      ]
+    },
+    {
+      title: "Cod Liver Oil",
+      items: [
+        { name: "Cod liver oil – 500 ml", price: "KSh 600 per bottle" }
+      ]
+    },
+    {
+      title: "Fried Fish",
+      items: [
+        { name: "Fried tilapia", price: "price varies by size" },
+        { name: "Fried Nile Perch", price: "price varies by size" }
+      ]
+    },
+    {
+      title: "Dried Fish",
+      items: [
+        { name: "Varieties of dried fish", price: "sold per kg" }
+      ]
+    }
+  ];
+
+  const premiumGoods = [
+    {
+      name: "Prime Nile Perch Fillet",
+      price: "1,000",
+      unit: "per kg",
+      sub: "Boneless daily catch, skinless",
+      desc: "Thick-skinned white fillet precisely cut for structural integrity. Perfect for baking, pan-searing, or premium classic frying."
+    },
+    {
+      name: "Premium Tilapia Fillet",
+      price: "1,600",
+      unit: "per kg",
+      sub: "Hand-carved morning harvest",
+      desc: "Delicate, clean-tasting lean cuts meticulously dressed. Perfect for light grilling, lime-infused steaming, or shallow pan frying."
+    },
+    {
+      name: "Fresh Whole Nile Perch",
+      price: "500",
+      unit: "per kg",
+      sub: "Stall 12 Signature Selection",
+      desc: "Glistened, ice-chilled daily arrival straight from the source. Ideal for grand whole-roasting, deep scoring, and family feasts."
+    },
+    {
+      name: "Fresh Whole Tilapia",
+      price: "450",
+      unit: "per kg",
+      sub: "Impeccably graded lake stock",
+      desc: "Bright-eyed, clear-scaled selection handled with ultimate care. Optimal for traditional wet-frying, scaling, or open-flame grilling."
+    },
+    {
+      name: "Fresh Whole Catfish",
+      price: "400",
+      unit: "per kg",
+      sub: "Rich texture profile catch",
+      desc: "Firm, density-rich whole specimen selected for authentic depth. Phenomenal for slow-simmered stews and traditional direct-heat curation."
+    },
+    {
+      name: "Fresh Whole Mad Fish",
+      price: "400",
+      unit: "per kg",
+      sub: "Regional culinary specialty",
+      desc: "Deeply traditional, firm-fleshed local variety prized for rich texture. Best prepared via slow authentic boiling or intensive spice braising."
+    },
+    {
+      name: "Pure Cod Liver Oil",
+      price: "600",
+      unit: "500 ml",
+      sub: "Cold-filtered amber tonic",
+      desc: "Nutrient-dense, pristine grade oil bottled to lock in historical health benefits. An absolute cornerstone of wellness and legacy longevity."
+    },
+    {
+      name: "Master-Fried Tilapia & Perch",
+      price: "Varies",
+      unit: "by size",
+      sub: "Crisp outer crust baseline",
+      desc: "Golden-etched, perfectly timed flash frying sealing in absolute moisture. Ready for direct gourmet dining or rich coconut sauce immersion."
+    },
+    {
+      name: "Varieties of Dried Fish",
+      price: "Custom",
+      unit: "per kg",
+      sub: "Sun-cured traditional batches",
+      desc: "Expertly dehydrated profiles crafted for intense savory depth. Rehydrates beautifully in rich local greens, broths, and traditional reduction sauces."
+    }
   ];
 
   return (
@@ -131,19 +222,14 @@ export default function App() {
           </div>
         )}
 
+        {/* 1. SIMPLE CATALOG VIEW */}
         {currentPage === 'products' && (
           <div className="max-w-5xl mx-auto px-4 py-12">
             <h1 className="text-2xl font-bold tracking-wide text-center text-stone-900 mb-12 uppercase">Product Catalog</h1>
             <div className="space-y-12">
-              {[
-                { title: "Fish Fillets", items: allGoods.slice(0, 2) },
-                { title: "Fresh Whole Fish", items: allGoods.slice(2, 6) },
-                { title: "Cod Liver Oil", items: [allGoods[6]] },
-                { title: "Fried Fish", items: allGoods.slice(7, 9) },
-                { title: "Dried Fish", items: [allGoods[9]] }
-              ].map((section, sIdx) => (
+              {simpleCatalog.map((section, sIdx) => (
                 <div key={sIdx} className="border-t border-stone-200 pt-6">
-                  <h2 className="text-lg font-bold text-stone-800 tracking-wide mb-6 uppercase">{section.title}</h2>
+                  <h2 className="text-sm font-bold text-stone-400 tracking-widest mb-6 uppercase">{section.title}</h2>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {section.items.map((product, pIdx) => (
                       <div key={pIdx} className="bg-white border border-stone-200 p-5 rounded flex flex-col justify-between shadow-sm">
@@ -168,29 +254,39 @@ export default function App() {
           </div>
         )}
 
+        {/* 2. PREMIUM SELECTION - PRICE ON LEFT FORMAT */}
         {currentPage === 'fillets' && (
           <div className="max-w-5xl mx-auto px-4 py-12">
-            <div className="text-center mb-10">
-              <h1 className="text-2xl font-bold tracking-wide text-stone-900 uppercase">Our Goods</h1>
-              <p className="text-stone-500 text-sm mt-2 max-w-xl mx-auto">
-                Freshly prepared selections sourced and managed directly at Nakuru Top Market, Stall 12.
-              </p>
+            <div className="text-center mb-16">
+              <span className="text-xs font-bold tracking-[0.3em] uppercase text-stone-400 block mb-2">Stall 12 Portfolio</span>
+              <h1 className="text-2xl font-light tracking-wide text-stone-950 uppercase">Our Selection</h1>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {allGoods.map((item, idx) => (
-                <div key={idx} className="bg-white border border-stone-200 p-6 rounded text-center flex flex-col justify-between shadow-sm">
-                  <div className="mb-4">
-                    <h2 className="text-base font-bold text-stone-900">{item.name}</h2>
-                    <p className="text-stone-600 font-medium text-xs mt-1 uppercase tracking-wider">{item.price}</p>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {premiumGoods.map((item, idx) => (
+                <div key={idx} className="bg-white border border-stone-200/80 p-6 rounded shadow-sm flex items-start space-x-6">
+                  {/* Price Plate on Left */}
+                  <div className="text-left min-w-[90px] border-r border-stone-100 pr-4 flex-shrink-0">
+                    <span className="text-xs font-bold text-stone-400 block uppercase tracking-wider">{item.unit}</span>
+                    <span className="text-xl font-bold text-stone-950 tracking-tight block mt-0.5">
+                      {item.price !== "Varies" && item.price !== "Custom" ? `KSh ${item.price}` : item.price}
+                    </span>
                   </div>
-                  <a
-                    href="https://wa.me/254714052641"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block w-full bg-white border border-stone-300 text-stone-700 py-2 rounded font-medium text-xs tracking-wider uppercase hover:bg-stone-50 transition-colors"
-                  >
-                    WhatsApp to Order
-                  </a>
+                  {/* Content on Right */}
+                  <div className="flex-grow flex flex-col justify-between h-full min-h-[140px]">
+                    <div>
+                      <h2 className="text-base font-bold text-stone-950 tracking-wide uppercase">{item.name}</h2>
+                      <span className="text-xs font-semibold text-stone-500 italic block mt-0.5">{item.sub}</span>
+                      <p className="text-stone-600 text-xs leading-relaxed mt-2.5 font-light">{item.desc}</p>
+                    </div>
+                    <a
+                      href="https://wa.me/254714052641"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-4 text-center bg-stone-950 text-white py-2 rounded font-medium text-[10px] tracking-widest uppercase hover:bg-stone-800 transition-colors w-full"
+                    >
+                      Secure Batch via WhatsApp
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>
