@@ -423,7 +423,7 @@ export default function App() {
                   Long before modern infrastructure redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-serif font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span>—widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>—initiated this venture with humility, preparing and selling beautiful food to the market community.
                 </p>
                 <p>
-                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside beautiful, traditional **fish creels (*Osera*)**.
+                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside beautiful, traditional fish creels (Osera).
                 </p>
               </div>
 
@@ -473,6 +473,7 @@ export default function App() {
                     <span className="text-[10px] font-bold text-stone-400 block uppercase tracking-wider">Location Landmark Anchor</span>
                     <p className="text-stone-950 font-serif font-bold text-lg leading-snug">
                       Nakuru Top Market, Stall 12<br />
+                      Mburu Gichua Road<br />
                       Next to Sokoni Plaza<br />
                       Nakuru, Kenya
                     </p>
@@ -480,13 +481,13 @@ export default function App() {
                   <div className="space-y-2 pt-2">
                     <span className="text-[10px] font-bold text-stone-400 block uppercase tracking-wider">Calibrated Navigation Bounds</span>
                     <p className="text-stone-600 text-xs font-light leading-relaxed">
-                      Coordinates are strictly centered on Sokoni Plaza right next to Nakuru Top Market, allowing clients to navigate seamlessly to the marketplace counter lanes.
+                      Coordinates are centered via Mburu Gichua Road immediately adjacent to Sokoni Plaza and Nakuru Top Market, bypassing generic supermarket intersections.
                     </p>
                   </div>
                 </div>
                 <div className="pt-4">
                   <a 
-                    href="https://www.google.com/maps/search/?api=1&query=-0.2831,36.0709"
+                    href="https://www.google.com/maps/search/?api=1&query=Nakuru+Top+Market+Mburu+Gichua+Road"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center space-x-2 bg-stone-950 text-white font-medium text-[10px] tracking-[0.15em] uppercase py-4 rounded hover:bg-amber-950 transition-colors shadow"
