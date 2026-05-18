@@ -15,7 +15,7 @@ export default function FishFillets() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <div className="text-center mb-10">
-        <h1 className="text-2xl font-bold tracking-wide text-stone-900 uppercase">Our Available Goods</h1>
+        <h1 className="text-2xl font-bold tracking-wide text-stone-900 uppercase">Our Selection</h1>
         <p className="text-stone-500 text-sm mt-2 max-w-xl mx-auto">
           Freshly prepared selections sourced and managed directly at Nakuru Top Market, Stall 12.
         </p>
