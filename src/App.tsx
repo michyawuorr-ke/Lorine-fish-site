@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Fish, MapPin, Clock, Compass, ArrowRight } from 'lucide-react';
+import { Menu, X, Fish, MapPin, Clock, Compass, ArrowRight, Truck, ShieldCheck, Layers } from 'lucide-react';
 
 type Page = 'home' | 'products' | 'fillets' | 'order' | 'about' | 'location';
 
@@ -11,7 +11,7 @@ export default function App() {
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Product Catalog' },
     { id: 'fillets', label: 'Our Selection' },
-    { id: 'order', label: 'How to Order' },
+    { id: 'order', label: 'Logistics & Ordering' },
     { id: 'about', label: 'About Us' },
     { id: 'location', label: 'Location & Hours' },
   ];
@@ -20,36 +20,36 @@ export default function App() {
     {
       title: "Fish Fillets",
       items: [
-        { name: "Nile Perch fillets", price: "KSh 1,200 per kg" },
-        { name: "Tilapia fillets", price: "KSh 1,600 per kg" }
+        { name: "Nile Perch fillets", price: "KSh 1,200 per kg", distribution: "Available Countrywide" },
+        { name: "Tilapia fillets", price: "KSh 1,600 per kg", distribution: "Available Countrywide" }
       ]
     },
     {
       title: "Fresh Whole Fish",
       items: [
-        { name: "Fresh whole Nile Perch", price: "KSh 650 per kg" },
-        { name: "Fresh whole Tilapia", price: "KSh 600 per kg" },
-        { name: "Fresh whole catfish", price: "KSh 400 per kg" },
-        { name: "Fresh whole mad fish", price: "KSh 400 per kg" }
+        { name: "Fresh whole Nile Perch", price: "KSh 650 per kg", distribution: "Available Countrywide" },
+        { name: "Fresh whole Tilapia", price: "KSh 600 per kg", distribution: "Available Countrywide" },
+        { name: "Fresh whole catfish", price: "KSh 400 per kg", distribution: "Regional Transit" },
+        { name: "Fresh whole mad fish", price: "KSh 400 per kg", distribution: "Regional Transit" }
       ]
     },
     {
       title: "Cod Liver Oil",
       items: [
-        { name: "Cod liver oil – 500 ml", price: "KSh 600 per bottle" }
+        { name: "Cod liver oil – 500 ml", price: "KSh 600 per bottle", distribution: "Available Countrywide" }
       ]
     },
     {
       title: "Fried Fish",
       items: [
-        { name: "Fried tilapia", price: "price varies by size" },
-        { name: "Fried Nile Perch", price: "price varies by size" }
+        { name: "Fried tilapia", price: "price varies by size", distribution: "Available Countrywide" },
+        { name: "Fried Nile Perch", price: "price varies by size", distribution: "Available Countrywide" }
       ]
     },
     {
       title: "Dried Fish",
       items: [
-        { name: "Varieties of dried fish", price: "Price varies by fish type" }
+        { name: "Varieties of dried fish", price: "Price varies by fish type", distribution: "Available Countrywide" }
       ]
     }
   ];
@@ -59,64 +59,43 @@ export default function App() {
       name: "Prime Nile Perch Fillet",
       price: "1,200",
       unit: "per kg",
-      sub: "Boneless daily catch, skinless",
-      desc: "Thick-skinned white fillet precisely cut for structural integrity. Perfect for baking, pan-searing, or premium classic frying."
+      sub: "Boneless daily catch • Countrywide Shipping",
+      desc: "Thick-skinned white fillet precisely cut for structural integrity. Packed in temperature-regulated cold-boxes for absolute freshness anywhere in Kenya."
     },
     {
       name: "Premium Tilapia Fillet",
       price: "1,600",
       unit: "per kg",
-      sub: "Hand-carved morning harvest",
-      desc: "Delicate, clean-tasting lean cuts meticulously dressed. Perfect for light grilling, lime-infused steaming, or shallow pan frying."
+      sub: "Hand-carved morning harvest • Countrywide Shipping",
+      desc: "Delicate, clean-tasting lean cuts meticulously dressed. Sealed and preserved perfectly to endure long-distance transit securely."
     },
     {
       name: "Fresh Whole Nile Perch",
       price: "650",
       unit: "per kg",
-      sub: "Signature Lakeside Selection",
-      desc: "Glistened, ice-chilled daily arrival straight from the source. Ideal for grand whole-roasting, deep scoring, and family feasts."
+      sub: "Signature Lakeside Selection • Countrywide Shipping",
+      desc: "Glistened, ice-chilled daily arrival straight from the source. Dispatched via countrywide cold freight routes for immediate arrival."
     },
     {
       name: "Fresh Whole Tilapia",
       price: "600",
       unit: "per kg",
-      sub: "Impeccably graded lake stock",
-      desc: "Bright-eyed, clear-scaled selection handled with ultimate care. Optimal for traditional wet-frying, scaling, or open-flame grilling."
-    },
-    {
-      name: "Fresh Whole Catfish",
-      price: "400",
-      unit: "per kg",
-      sub: "Rich texture profile catch",
-      desc: "Firm, density-rich whole specimen selected for authentic depth. Phenomenal for slow-simmered stews and traditional direct-heat curation."
-    },
-    {
-      name: "Fresh Whole Mad Fish",
-      price: "400",
-      unit: "per kg",
-      sub: "Regional culinary specialty",
-      desc: "Deeply traditional, firm-fleshed local variety prized for rich texture. Best prepared via slow authentic boiling or intensive spice braising."
-    },
-    {
-      name: "Pure Cod Liver Oil",
-      price: "600",
-      unit: "500 ml",
-      sub: "Cold-filtered amber tonic",
-      desc: "Nutrient-dense, pristine grade oil bottled to lock in historical health benefits. An absolute cornerstone of wellness and legacy longevity."
+      sub: "Impeccably graded lake stock • Countrywide Shipping",
+      desc: "Bright-eyed, clear-scaled selection handled with ultimate care. Shipped completely packed in ice matrices directly to your destination."
     },
     {
       name: "Master-Fried Tilapia & Perch",
       price: "Varies",
       unit: "by size",
-      sub: "Crisp outer crust baseline",
-      desc: "Golden-etched, perfectly timed flash frying sealing in absolute moisture. Ready for direct gourmet dining or rich coconut sauce immersion."
+      sub: "Flash-fried crust layer • Countrywide Shipping",
+      desc: "Golden-etched, perfectly timed flash frying sealing in absolute moisture. Specially enclosed in high-grade food containers for seamless cross-county delivery."
     },
     {
       name: "Varieties of Dried Fish",
       price: "Varies",
       unit: "by type",
-      sub: "Sun-cured traditional batches",
-      desc: "Expertly dehydrated profiles crafted for intense savory depth. Price scales based on specific fish variety selected. Rehydrates beautifully in rich local greens."
+      sub: "Sun-cured traditional batches • Countrywide Shipping",
+      desc: "Expertly dehydrated profiles crafted for intense savory depth. Shipped effortlessly across any distance with zero degradation risk."
     }
   ];
 
@@ -190,20 +169,31 @@ export default function App() {
               
               {/* STALL 12 RE-POSITIONED AS PROMINENT LUXURY BADGE */}
               <div className="inline-flex items-center space-x-2 bg-stone-100 border border-stone-200 px-4 py-1.5 rounded-full mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-stone-900 animate-pulse"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-stone-950 animate-pulse"></span>
                 <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-stone-800">
                   Nakuru Top Market • Stall 12
                 </span>
               </div>
 
               <h1 className="text-3xl md:text-5xl font-serif tracking-tight text-stone-950 leading-[1.2]">
-                Sovereign Seafood Provisioning
+                Sovereign Seafood Provisioning <br className="hidden md:inline"/>— Now Countrywide
               </h1>
               <p className="text-stone-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
-                Supplying impeccably graded Nile Perch, hand-carved Tilapia lots, and premium wellness oils to residential estates, executive hospitality groups, and regional institutions.
+                Supplying impeccably graded Nile Perch, hand-carved Tilapia lots, and premium wellness oils to residential estates, executive hospitality groups, and regional institutions across Kenya.
               </p>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto pt-6">
+              {/* LOGISTICS INSIGNIA */}
+              <div className="bg-stone-50 border border-dashed border-stone-300 rounded p-4 max-w-lg mx-auto flex items-center justify-between text-left">
+                <div className="flex items-center space-x-3">
+                  <Truck className="h-5 w-5 text-stone-800 flex-shrink-0" />
+                  <div>
+                    <span className="text-[11px] font-bold uppercase tracking-wider block text-stone-950">Countrywide Distribution Vector</span>
+                    <span className="text-xs text-stone-500 font-light">Fresh, Whole, or Master-Fried fish delivered to your destination.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto pt-4">
                 <a
                   href="https://wa.me/254714052641"
                   target="_blank"
@@ -221,13 +211,44 @@ export default function App() {
               </div>
             </section>
 
+            {/* NATIONWIDE BULK LOGISTICS PANEL */}
+            <section className="grid md:grid-cols-3 gap-6 border-y border-stone-200 py-12">
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-stone-950">
+                  <Truck className="h-4 w-4" />
+                  <h3 className="text-xs font-bold uppercase tracking-widest">Countrywide Infrastructure</h3>
+                </div>
+                <p className="text-stone-600 text-xs font-light leading-relaxed">
+                  Our fresh catches, custom fillets, and signature fried selections are packed securely in insulated cold boxes and dispatched to transit hubs daily for countrywide coverage.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-stone-950">
+                  <ShieldCheck className="h-4 w-4" />
+                  <h3 className="text-xs font-bold uppercase tracking-widest">Free Institutional Delivery</h3>
+                </div>
+                <p className="text-stone-600 text-xs font-light leading-relaxed">
+                  Bulk procurement contracts for universities, hotels, and corporate kitchens receive completely free destination shipping directly into their receiving lanes.
+                </p>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2 text-stone-950">
+                  <Layers className="h-4 w-4" />
+                  <h3 className="text-xs font-bold uppercase tracking-widest">Stall 12 Verification</h3>
+                </div>
+                <p className="text-stone-600 text-xs font-light leading-relaxed">
+                  Every outbound shipment is graded, cross-checked, and approved on the Nakuru Top Market floor by Lorine before sealing to ensure strict legacy metrics are met.
+                </p>
+              </div>
+            </section>
+
             {/* EDITORIAL STORY HIGHLIGHT */}
-            <section className="grid md:grid-cols-12 gap-8 items-center border-t border-stone-200 pt-16">
+            <section className="grid md:grid-cols-12 gap-8 items-center pt-4">
               <div className="md:col-span-7 space-y-4">
                 <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-stone-400 block">Lineage of Custody</span>
                 <h2 className="text-2xl font-serif tracking-tight text-stone-950">The Matriarchal Standard</h2>
                 <p className="text-stone-600 text-sm font-light leading-relaxed">
-                  Established by <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span> (popularly revered as Mama Otieno), Stall 12 was built on deep community leadership and strict inventory metrics. Today, Lorine maintains complete structural custody over the operation, ensuring that the legacy of pristine market governance remains completely absolute.
+                  Established by <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span> (popularly revered as Mama Otieno), Stall 12 was built on deep community leadership and strict inventory metrics. Today, Lorine maintains complete structural custody over the operation, expanding our distribution pipelines directly to doorsteps across Kenya.
                 </p>
                 <div className="pt-2">
                   <button
@@ -248,11 +269,11 @@ export default function App() {
                 <div className="space-y-4 border-t border-stone-800 pt-4">
                   <div>
                     <span className="text-sm font-medium text-stone-100 block">Kabarak University</span>
-                    <span className="text-[9px] text-stone-400 uppercase tracking-wider block mt-0.5">Wholesale Delivery Vector</span>
+                    <span className="text-[9px] text-stone-400 uppercase tracking-wider block mt-0.5">Wholesale Delivery Vector • Free Transit</span>
                   </div>
                   <div>
                     <span className="text-sm font-medium text-stone-100 block">Egerton University</span>
-                    <span className="text-[9px] text-stone-400 uppercase tracking-wider block mt-0.5">Bulk Dietary Supply</span>
+                    <span className="text-[9px] text-stone-400 uppercase tracking-wider block mt-0.5">Bulk Dietary Supply • Free Transit</span>
                   </div>
                 </div>
               </div>
@@ -265,7 +286,7 @@ export default function App() {
           <div className="max-w-5xl mx-auto px-6 py-16">
             <div className="text-center mb-12">
               <h1 className="text-3xl font-serif tracking-wide text-stone-950 uppercase">Product Catalog</h1>
-              <p className="text-stone-500 text-xs tracking-wider mt-2 uppercase">Complete Wholesale Reference Guide</p>
+              <p className="text-stone-500 text-xs tracking-wider mt-2 uppercase">Complete Wholesale Reference & Countrywide Logistics Guide</p>
             </div>
             <div className="space-y-12">
               {simpleCatalog.map((section, sIdx) => (
@@ -275,7 +296,12 @@ export default function App() {
                     {section.items.map((product, pIdx) => (
                       <div key={pIdx} className="bg-white border border-stone-200 p-6 rounded flex flex-col justify-between shadow-sm hover:border-stone-400 transition-colors">
                         <div className="mb-4">
-                          <h3 className="font-serif font-bold text-stone-950 text-base">{product.name}</h3>
+                          <div className="flex justify-between items-start">
+                            <h3 className="font-serif font-bold text-stone-950 text-base">{product.name}</h3>
+                            <span className="text-[8px] bg-stone-100 border border-stone-200 text-stone-600 font-bold px-2 py-0.5 rounded tracking-wide uppercase">
+                              {product.distribution}
+                            </span>
+                          </div>
                           <p className="text-stone-700 text-sm font-medium mt-1">{product.price}</p>
                         </div>
                         <a
@@ -308,13 +334,13 @@ export default function App() {
                   <div className="text-left min-w-[100px] border-r border-stone-100 pr-4 flex-shrink-0">
                     <span className="text-[10px] font-bold text-stone-400 block uppercase tracking-wider">{item.unit}</span>
                     <span className="text-xl font-serif font-bold text-stone-950 tracking-tight block mt-1">
-                      {item.price !== "Varies" && item.price !== "Custom" ? `KSh ${item.price}` : item.price}
+                      {item.price !== "Varies" ? `KSh ${item.price}` : item.price}
                     </span>
                   </div>
                   <div className="flex-grow flex flex-col justify-between h-full min-h-[140px]">
                     <div>
                       <h2 className="text-sm font-bold text-stone-950 tracking-wide uppercase">{item.name}</h2>
-                      <span className="text-[11px] text-stone-500 italic block mt-0.5">{item.sub}</span>
+                      <span className="text-[11px] text-amber-800 font-medium block mt-0.5">{item.sub}</span>
                       <p className="text-stone-600 text-xs leading-relaxed mt-2.5 font-light">{item.desc}</p>
                     </div>
                     <a
@@ -332,24 +358,52 @@ export default function App() {
           </div>
         )}
 
+        {/* ORDERING & LOGISTICS BLUEPRINT */}
         {currentPage === 'order' && (
-          <div className="max-w-3xl mx-auto px-6 py-16">
-            <h1 className="text-3xl font-serif tracking-wide text-center text-stone-950 mb-8 uppercase">How to Order</h1>
+          <div className="max-w-3xl mx-auto px-6 py-16 space-y-8">
+            <h1 className="text-3xl font-serif tracking-wide text-center text-stone-950 uppercase">Logistics & Ordering</h1>
+            
+            {/* BULK FREIGHT PROMINENT BANNER */}
+            <div className="bg-stone-950 text-stone-100 p-8 rounded shadow-md text-center space-y-3 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-stone-400"></div>
+              <span className="text-[9px] tracking-[0.3em] font-bold text-stone-400 uppercase block">Wholesale Incentive Architecture</span>
+              <h2 className="text-xl font-serif tracking-wide uppercase text-white">Free Bulk Freight Destination Delivery</h2>
+              <p className="text-stone-300 text-xs font-light max-w-lg mx-auto leading-relaxed">
+                All high-volume procurement assignments designated for educational institutions, corporate caterers, and hospitality properties anywhere in Kenya are completely exempt from transport fees.
+              </p>
+            </div>
+
             <div className="space-y-6 bg-white border border-stone-200 p-8 rounded shadow-sm">
               <p className="text-stone-800 text-sm md:text-base leading-relaxed text-center font-light">
-                We accommodate both custom household cuts and recurring wholesale deliveries. Order online and process pickup directly at Nakuru Top Market, Stall 12.
+                We manage daily localized marketplace pickups alongside high-velocity nationwide freight configurations.
               </p>
+
+              <div className="grid md:grid-cols-2 gap-6 border-t border-stone-100 pt-6">
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2">1. Localized Collection</h3>
+                  <p className="text-stone-600 text-xs font-light leading-relaxed">
+                    Pick up your custom residential cuts directly from the counter spaces at Nakuru Top Market, Stall 12.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-2">2. Countrywide Logistics</h3>
+                  <p className="text-stone-600 text-xs font-light leading-relaxed">
+                    Fresh whole fish, fillets, and fried allocations are loaded into structured cold containers and dispatched via specialized long-distance routes across Kenya.
+                  </p>
+                </div>
+              </div>
+
               <div className="border-t border-stone-100 pt-6">
                 <h2 className="text-[10px] font-bold uppercase text-stone-400 tracking-wider mb-2">Direct Communications</h2>
                 <ul className="space-y-2 text-stone-900 text-sm">
-                  <li>• <span className="font-semibold">WhatsApp Workspace:</span> 0714 052 641</li>
+                  <li>• <span className="font-semibold">WhatsApp Workspace Hub:</span> 0714 052 641</li>
                   <li>• <span className="font-semibold">Direct Voice Line:</span> 0714 052 641</li>
                 </ul>
               </div>
               <div className="border-t border-stone-100 pt-6">
-                <h2 className="text-[10px] font-bold uppercase text-stone-400 tracking-wider mb-2">Standard Procurement Request Blueprint</h2>
+                <h2 className="text-[10px] font-bold uppercase text-stone-400 tracking-wider mb-2">Standard Countrywide Procurement Blueprint</h2>
                 <blockquote className="bg-stone-50 border-l-4 border-stone-900 p-4 text-stone-700 text-sm italic font-mono rounded-r">
-                  “Hi Lorine, I would like to request 5 kg Nile Perch fillets, 3 kg whole Tilapia, and 2 bottles of pure cod liver oil. Scheduling collection for Friday at Stall 12.”
+                  “Hi Lorine, I would like to request bulk delivery of 40 kg fresh whole Tilapia and 20 kg Nile Perch fillets shipped to our hospitality layout outside Nakuru. Please apply the bulk free delivery framework.”
                 </blockquote>
               </div>
             </div>
@@ -390,7 +444,7 @@ export default function App() {
                   When our mother fell ill during the critical Covid-19 period, Lorine did not hesitate. She stepped forward immediately to take complete command, preserving the supply lines when local infrastructure was under its greatest stress. Following Mama Otieno's passing in late 2022, Lorine assumed full administrative and operational control. 
                 </p>
                 <p>
-                  Because the market community, premium hoteliers, and bulk institutions had worked alongside her for years, the operational transition was completely seamless. Today, Stall 12 has expanded its portfolio significantly beyond those early Tilapia runs, serving as an elite wholesale supplier to prominent educational universities like <span className="font-semibold text-stone-950">Kabarak University</span> and <span className="font-semibold text-stone-950">Egerton University</span>, alongside top-tier hospitality destinations throughout Nakuru.
+                  Because the market community, premium hoteliers, and bulk institutions had worked alongside her for years, the operational transition was completely seamless. Today, Stall 12 has expanded its portfolio significantly beyond those early Tilapia runs, serving as an elite wholesale supplier to prominent educational universities like <span className="font-semibold text-stone-950">Kabarak University</span> and <span className="font-semibold text-stone-950">Egerton University</span>, alongside top-tier hospitality destinations throughout Nakuru and expanded logistic networks nationwide.
                 </p>
                 <p className="font-serif italic text-stone-500 mt-4 border-t border-stone-100 pt-4">
                   Generations have changed, but the core mandate established by Rose Achieng Oyugi remains unalterable: world-class handling, meticulous hygiene, and total product transparency.
