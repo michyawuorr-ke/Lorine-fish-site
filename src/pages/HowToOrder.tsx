@@ -1,59 +1,26 @@
-import React from 'react';
-import { MessageSquare, Phone, Store } from 'lucide-react';
-
 export default function HowToOrder() {
   return (
-    <div class="max-w-3xl mx-auto px-4 py-8">
-      <div class="text-center mb-8">
-        <h2 class="text-xl sm:text-2xl font-black text-slate-900">Simple Step-By-Step Ordering</h2>
-        <p class="text-xs sm:text-sm text-slate-600 mt-1">
-          You can order via WhatsApp, then pick up at Nakuru Top Market, Stall 12, or we deliver for wholesale.
+    <div className="max-w-3xl mx-auto px-4 py-12">
+      <h1 className="text-2xl font-bold tracking-wide text-center text-stone-900 mb-8 uppercase">How to Order</h1>
+      
+      <div className="space-y-6 bg-white border border-stone-200 p-6 rounded shadow-sm">
+        <p className="text-stone-800 text-sm md:text-base leading-relaxed text-center font-medium">
+          You can order via WhatsApp and then pick up at Nakuru Top Market, Stall 12.
         </p>
-      </div>
 
-      <div class="space-y-4">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex gap-4">
-          <div class="bg-green-100 p-2.5 rounded-lg text-green-700 shrink-0 h-10 w-10 flex items-center justify-center">
-            <MessageSquare class="h-5 w-5" />
-          </div>
-          <div>
-            <h3 class="font-bold text-slate-900 text-sm sm:text-base">Primary Channel: WhatsApp Message</h3>
-            <p class="text-xs text-slate-600 mt-1">Send your details directly to <span class="font-bold text-slate-900">0714 052 641</span>.</p>
-            <div class="bg-slate-50 border border-slate-200 rounded-lg p-3 mt-3 font-mono text-[11px] sm:text-xs text-slate-700">
-              <p class="font-bold text-slate-500 mb-1">// Copy-Paste Order Example:</p>
-              "20 kg Nile Perch fillets, 10 kg tilapia fillets, 5 bottles of cod liver oil, delivery on Thursday."
-            </div>
-            <a href="https://wa.me/254714052641" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-1.5 bg-green-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-green-700 transition">
-              Launch WhatsApp Chat
-            </a>
-          </div>
+        <div className="border-t border-stone-100 pt-4">
+          <h2 className="text-xs font-bold uppercase text-stone-400 tracking-wider mb-2">Ordering Instructions</h2>
+          <ul className="space-y-2 text-stone-700 text-sm">
+            <li>• <span className="font-semibold">WhatsApp:</span> 0714 052 641</li>
+            <li>• <span className="font-semibold">Phone:</span> 0714 052 641</li>
+          </ul>
         </div>
 
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex gap-4">
-          <div class="bg-blue-100 p-2.5 rounded-lg text-blue-700 shrink-0 h-10 w-10 flex items-center justify-center">
-            <Phone class="h-5 w-5" />
-          </div>
-          <div>
-            <h3 class="font-bold text-slate-900 text-sm sm:text-base">Immediate Voice Call Assistance</h3>
-            <p class="text-xs text-slate-600 mt-1">
-              Have unique weight requirements or need urgent supply adjustments? Call <span class="font-bold text-slate-900">0714 052 641</span> directly for immediate solutions.
-            </p>
-            <a href="tel:0714052641" class="mt-3 inline-flex items-center gap-1.5 bg-blue-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg hover:bg-blue-700 transition">
-              Call Counter Now
-            </a>
-          </div>
-        </div>
-
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex gap-4">
-          <div class="bg-amber-100 p-2.5 rounded-lg text-amber-700 shrink-0 h-10 w-10 flex items-center justify-center">
-            <Store class="h-5 w-5" />
-          </div>
-          <div>
-            <h3 class="font-bold text-slate-900 text-sm sm:text-base">In-Person Collection</h3>
-            <p class="text-xs text-slate-600 mt-1">
-              Retail clients can visit the physical stall anytime during opening timelines to collect inventory products safely over the counter.
-            </p>
-          </div>
+        <div className="border-t border-stone-100 pt-4">
+          <h2 className="text-xs font-bold uppercase text-stone-400 tracking-wider mb-2">Example WhatsApp Message</h2>
+          <blockquote className="bg-stone-50 border-l-4 border-emerald-600 p-4 text-stone-600 text-sm italic font-mono rounded-r">
+            “Hi, I want 5 kg Nile Perch fillets, 3 kg tilapia fillets, 2 bottles of cod liver oil, pickup on Friday at Nakuru Top Market, Stall 12.”
+          </blockquote>
         </div>
       </div>
     </div>

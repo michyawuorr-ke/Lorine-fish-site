@@ -1,70 +1,71 @@
-import React from 'react';
-import ProductCard from '../components/ProductCard';
-
 export default function Products() {
-  const sections = [
+  const catalog = [
     {
       title: "Fish Fillets",
       items: [
-        { title: "Nile Perch Fillets (Mbuta)", price: "KSh 1,100 / kg", description: "Freshly filleted Nile Perch. Core wholesale line optimized for hotels, schools, universities, and event caterers.", placeholder: "Premium Nile Perch Fillets cut at Stall 12", tags: ["Wholesale", "Retail"] },
-        { title: "Tilapia Fillets (Ngege)", price: "KSh 1,700 / kg", description: "Carefully extracted bone-out premium Tilapia fillets. Pristine quality handling.", placeholder: "Fresh Tilapia fillets on presentation counter", tags: ["Wholesale", "Retail"] }
+        { name: "Nile Perch fillets", price: "KSh 1,000 per kg" },
+        { name: "Tilapia fillets", price: "KSh 1,600 per kg" }
       ]
     },
     {
       title: "Fresh Whole Fish",
       items: [
-        { title: "Fresh Whole Tilapia", price: "KSh 450 / kg", description: "Direct daily supply from Lake Victoria. Perfect size grading for restaurant platters and traditional stews.", placeholder: "Fresh Tilapia laid out at Nakuru Top Market", tags: ["Wholesale", "Retail"] },
-        { title: "Fresh Whole Nile Perch", price: "KSh 500 / kg", description: "Sourced daily under peak sanitary conditions. Excellent structural yield.", placeholder: "Whole Nile Perch catches preserved at counter", tags: ["Wholesale", "Retail"] },
-        { title: "Fresh Mad Fish", price: "KSh 350 / kg", description: "High nutritional profiles, sourced straight from lake waters to market.", placeholder: "Fresh mud fish stock inside Stall 12", tags: ["Wholesale", "Retail"] },
-        { title: "Fresh Catfish", price: "KSh 350 / kg", description: "Meaty, rich, hand-selected daily selections preferred by institutions.", placeholder: "Fresh clean catfish batches on display", tags: ["Wholesale", "Retail"] }
-      ]
-    },
-    {
-      title: "Fried Fish",
-      items: [
-        { title: "Fried Tilapia", price: "Varies by Size", description: "Deep fried to high standards inside our stall. Golden outer skin with soft flaky meat inside.", placeholder: "Golden fried Tilapia pieces at Stall 12", tags: ["Retail", "Catering"] },
-        { title: "Fried Nile Perch", price: "Varies by Size", description: "Expertly fried portions using fresh daily oil distributions.", placeholder: "Crispy fried Nile Perch cutlets", tags: ["Retail", "Catering"] }
-      ]
-    },
-    {
-      title: "Varieties of Dried Fish",
-      items: [
-        { title: "Assorted Dried Fish", price: "Sold per kg", description: "Cured and sun-dried variations, including specific mud fish and catfish family types. Perfect shelf life.", placeholder: "Traditional dried fish variants bundled up", tags: ["Wholesale", "Retail"] }
+        { name: "Fresh whole Nile Perch", price: "KSh 500 per kg" },
+        { name: "Fresh whole Tilapia", price: "KSh 450 per kg" },
+        { name: "Fresh whole catfish", price: "KSh 400 per kg" },
+        { name: "Fresh whole mad fish", price: "KSh 400 per kg" }
       ]
     },
     {
       title: "Cod Liver Oil",
       items: [
-        { title: "Nile Perch Cod Liver Oil", price: "KSh 600 / 500ml", description: "Freshly cooked natural extraction rich in Omega-3 fatty acids and vital Vitamin D profiles.", placeholder: "500ml clear bottles filled with fresh-cooked fish oil", tags: ["Supplement", "Retail"] }
+        { name: "Cod liver oil – 500 ml", price: "KSh 600 per bottle" }
+      ]
+    },
+    {
+      title: "Fried Fish",
+      items: [
+        { name: "Fried tilapia", price: "price varies by size" },
+        { name: "Fried Nile Perch", price: "price varies by size" }
+      ]
+    },
+    {
+      title: "Dried Fish",
+      items: [
+        { name: "Varieties of dried fish", price: "sold per kg" }
       ]
     }
   ];
 
   return (
-    <div class="max-w-5xl mx-auto px-4 py-8">
-      <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-b border-slate-200 pb-3 mb-8 text-center sm:text-left">
-        Commercial & Retail Catalog
-      </h2>
+    <div className="max-w-5xl mx-auto px-4 py-12">
+      <h1 className="text-2xl font-bold tracking-wide text-center text-stone-900 mb-12 uppercase">Product Catalog</h1>
       
-      {sections.map((section, idx) => (
-        <div key={idx} class="mb-10">
-          <h3 class="text-base sm:text-lg font-bold text-blue-900 mb-4 border-l-4 border-blue-600 pl-2">
-            {section.title}
-          </h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {section.items.map((item, itemIdx) => (
-              <ProductCard
-                key={itemIdx}
-                title={item.title}
-                price={item.price}
-                description={item.description}
-                placeholderText={item.placeholder}
-                tags={item.tags}
-              />
-            ))}
+      <div className="space-y-12">
+        {catalog.map((section, sIdx) => (
+          <div key={sIdx} className="border-t border-stone-200 pt-6">
+            <h2 className="text-lg font-bold text-stone-800 tracking-wide mb-6 uppercase">{section.title}</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {section.items.map((product, pIdx) => (
+                <div key={pIdx} className="bg-white border border-stone-200 p-5 rounded flex flex-col justify-between shadow-sm">
+                  <div className="mb-4">
+                    <h3 className="font-semibold text-stone-900 text-base">{product.name}</h3>
+                    <p className="text-stone-700 text-sm font-medium mt-1">{product.price}</p>
+                  </div>
+                  <a
+                    href="https://wa.me/254714052641"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-block bg-emerald-600 text-white text-center font-medium text-xs tracking-wider uppercase py-2.5 rounded hover:bg-emerald-700 transition-colors"
+                  >
+                    WhatsApp to Order
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
