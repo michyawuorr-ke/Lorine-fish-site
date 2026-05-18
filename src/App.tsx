@@ -206,7 +206,7 @@ export default function App() {
               <h2 className="text-xs font-bold tracking-[0.25em] uppercase text-stone-400 mb-6">The Legacy of Stall 12</h2>
               <div className="space-y-6 text-stone-800 font-light text-sm md:text-base leading-relaxed text-left max-w-xl mx-auto">
                 <p>
-                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span>, affectionately recognized throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Known equally for her business discipline and her trusted role as a community conflict resolver, she anchored a permanent standard of integrity in the marketplace.
+                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, <span className="font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4">Rose Achieng Oyugi</span>, affectionately recognized throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Known equally for her business discipline and her trusted role as a community conflict resolver, she anchored a permanent standard of integrity in the marketplace.
                 </p>
                 <p>
                   Today, **Lorine fully runs and manages the operations**, continuing a lineage born from dawn lake runs and hand-carved excellence. Under her strict oversight, the foundational parameters of top-tier handling and pristine hygiene remain completely absolute.
@@ -315,7 +315,7 @@ export default function App() {
           </div>
         )}
 
-        {/* HIGH-GRADE HERITAGE STORY WITH UPDATED NAME & LEADERSHIP CONTEXT */}
+        {/* HIGH-GRADE HERITAGE STORY - HARD KEY GUARANTEED */}
         {currentPage === 'about' && (
           <div className="max-w-3xl mx-auto px-4 py-16 space-y-12">
             <div className="text-center">
@@ -327,10 +327,10 @@ export default function App() {
               <div>
                 <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Matriarch & Leader: Rose Achieng Oyugi</h3>
                 <p className="mb-4">
-                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span>, widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
+                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span> widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
                 </p>
                 <p>
-                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside large, traditional insulated brown transit containers.
+                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Her voice brought structural balance to the market marketplace. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside large, traditional insulated brown transit containers.
                 </p>
               </div>
 
