@@ -34,7 +34,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
         </div>
       </section>
 
-      <section className="grid md:grid-items md:grid-cols-2 gap-12 border-t border-stone-200 pt-16">
+      <section className="grid md:grid-cols-2 gap-12 border-t border-stone-200 pt-16">
         <div>
           <h2 className="text-2xl font-light text-stone-900 tracking-wide mb-6">Why Choose Our Cuts?</h2>
           <ul className="space-y-4">
