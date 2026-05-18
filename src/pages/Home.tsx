@@ -20,21 +20,21 @@ export default function Home({ setCurrentPage }: HomeProps) {
             href="https://wa.me/254714052641"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-emerald-600 text-white font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-emerald-700 transition-colors"
+            className="w-full bg-stone-900 text-white font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-stone-800 transition-colors"
           >
             WhatsApp to Order (0714 052 641)
           </a>
           <a
             href="tel:0714052641"
-            className="w-full bg-stone-900 text-white font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-stone-800 transition-colors"
+            className="w-full bg-white border border-stone-300 text-stone-700 font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-stone-50 transition-colors"
           >
             Call to Order (0714 052 641)
           </a>
           <button
             onClick={() => setCurrentPage('location')}
-            className="w-full bg-white border border-stone-300 text-stone-700 font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-stone-50 transition-colors"
+            className="w-full bg-stone-100 text-stone-600 font-medium text-xs tracking-wider uppercase py-3 rounded text-center hover:bg-stone-200 transition-colors"
           >
-            Visit Us at Nakuru Top Market, Stall 12
+            Visit Our Stall
           </button>
         </div>
       </section>

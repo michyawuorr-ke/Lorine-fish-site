@@ -56,7 +56,7 @@ export default function Products() {
                     href="https://wa.me/254714052641"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-block bg-emerald-600 text-white text-center font-medium text-xs tracking-wider uppercase py-2.5 rounded hover:bg-emerald-700 transition-colors"
+                    className="w-full inline-block bg-white border border-stone-300 text-stone-700 text-center font-medium text-xs tracking-wider uppercase py-2.5 rounded hover:bg-stone-50 transition-colors"
                   >
                     WhatsApp to Order
                   </a>
