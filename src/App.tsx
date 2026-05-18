@@ -415,7 +415,7 @@ export default function App() {
                 </div>
                 <div className="pt-4">
                   <a 
-                    href="https://maps.google.com/?q=Lorine's+Fish+and+Fish+Products+Nakuru+Top+Market+Stall+12"
+                    href="https://www.google.com/maps/search/?api=1&query=-0.2885,36.0715"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center space-x-2 bg-stone-950 text-white font-medium text-[10px] tracking-[0.15em] uppercase py-3.5 rounded hover:bg-stone-800 transition-colors"
