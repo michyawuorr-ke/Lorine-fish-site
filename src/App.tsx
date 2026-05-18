@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Fish } from 'lucide-react';
+import { Menu, X, Fish, MapPin, Clock, Compass } from 'lucide-react';
 
 type Page = 'home' | 'products' | 'fillets' | 'order' | 'about' | 'location';
 
@@ -121,22 +121,24 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans">
+    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-stone-900 selection:text-white">
       {/* GLOBAL NAVBAR */}
-      <nav className="fixed w-full bg-white border-b border-stone-200 z-50">
+      <nav className="fixed w-full bg-white/80 backdrop-blur-md border-b border-stone-200/60 z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
-              <Fish className="h-5 w-5 text-stone-800" />
-              <span className="font-semibold text-sm tracking-wider uppercase text-stone-900">Lorine's Fish</span>
+          <div className="flex justify-between h-20 items-center">
+            <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <Fish className="h-5 w-5 text-stone-950 stroke-[1.5]" />
+              <span className="font-medium text-xs tracking-[0.25em] uppercase text-stone-950">Lorine's Fish</span>
             </div>
-            <div className="hidden lg:flex space-x-6">
+            <div className="hidden lg:flex space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setCurrentPage(item.id)}
-                  className={`text-xs tracking-widest uppercase transition-all ${
-                    currentPage === item.id ? 'text-stone-900 font-bold border-b-2 border-stone-900 pb-1' : 'text-stone-500 hover:text-stone-900'
+                  className={`text-[10px] tracking-[0.2em] uppercase transition-all duration-300 relative py-1 ${
+                    currentPage === item.id 
+                      ? 'text-stone-950 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-stone-950' 
+                      : 'text-stone-400 hover:text-stone-950'
                   }`}
                 >
                   {item.label}
@@ -144,14 +146,14 @@ export default function App() {
               ))}
             </div>
             <div className="lg:hidden">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-stone-900 focus:outline-none">
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              <button onClick={() => setIsOpen(!isOpen)} className="text-stone-950 focus:outline-none p-1">
+                {isOpen ? <X className="h-5 w-5 stroke-[1.5]" /> : <Menu className="h-5 w-5 stroke-[1.5]" />}
               </button>
             </div>
           </div>
         </div>
         {isOpen && (
-          <div className="lg:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-4 space-y-1">
+          <div className="lg:hidden bg-white border-b border-stone-200 px-6 py-4 space-y-3 shadow-sm animate-fadeIn">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -159,8 +161,8 @@ export default function App() {
                   setCurrentPage(item.id);
                   setIsOpen(false);
                 }}
-                className={`block w-full text-left px-3 py-2 text-xs tracking-wider uppercase ${
-                  currentPage === item.id ? 'bg-stone-100 text-stone-900 font-bold' : 'text-stone-600'
+                className={`block w-full text-left py-2 text-[10px] tracking-[0.2em] uppercase ${
+                  currentPage === item.id ? 'text-stone-950 font-bold' : 'text-stone-400'
                 }`}
               >
                 {item.label}
@@ -171,53 +173,73 @@ export default function App() {
       </nav>
 
       {/* DYNAMIC CONTENT ROUTER */}
-      <main className="flex-grow pt-16">
+      <main className="flex-grow pt-20">
+        
+        {/* CLEAN EMBASSY-GRADE HOME PAGE */}
         {currentPage === 'home' && (
-          <div className="max-w-4xl mx-auto px-4 py-16 space-y-24">
-            <section className="text-center pt-8">
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-stone-400 block mb-3">
+          <div className="max-w-5xl mx-auto px-6 py-20 md:py-32 space-y-32">
+            <section className="text-center space-y-8 max-w-3xl mx-auto">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-stone-400 block">
                 Est. Over 20 Years • Nakuru Top Market
               </span>
-              <h1 className="text-2xl md:text-4xl font-light tracking-tight text-stone-950 max-w-3xl mx-auto leading-tight mb-6">
-                Lorine's Fish & Fish Products • Fish Fillets • Stall 12
+              <h1 className="text-3xl md:text-5xl font-extralight tracking-tight text-stone-950 leading-[1.15]">
+                Premium Seafood Provisioning • Stall 12
               </h1>
-              <p className="text-stone-500 text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-serif italic mb-10">
-                Nile Perch & Tilapia fillets • fresh fish • cod liver oil • fried fish • dried fish • open Monday–Saturday, 9:00 AM – 8:00 PM
+              <div className="h-[1px] w-12 bg-stone-300 mx-auto my-6"></div>
+              <p className="text-stone-500 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-serif italic">
+                Sourcing elite Nile Perch and Tilapia lots for discerning residential clients, commercial culinary groups, and academic institutions across the region.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto pt-4">
                 <a
                   href="https://wa.me/254714052641"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-stone-950 text-white font-medium text-xs tracking-[0.15em] uppercase py-3.5 rounded shadow-sm hover:bg-stone-800 transition-all duration-300"
+                  className="w-full bg-stone-950 text-white font-medium text-[10px] tracking-[0.2em] uppercase py-4 rounded shadow-sm hover:bg-stone-800 transition-all duration-300 text-center"
                 >
-                  WhatsApp to Order (0714 052 641)
+                  Direct Procurement Via WhatsApp
                 </a>
-                <a
-                  href="tel:0714052641"
-                  className="w-full bg-white border border-stone-200 text-stone-800 font-medium text-xs tracking-[0.15em] uppercase py-3.5 rounded shadow-sm hover:bg-stone-50 transition-all duration-300"
+                <button
+                  onClick={() => setCurrentPage('fillets')}
+                  className="w-full bg-transparent border border-stone-200 text-stone-800 font-medium text-[10px] tracking-[0.2em] uppercase py-4 rounded hover:bg-stone-50 transition-all duration-300 text-center"
                 >
-                  Call to Order (0714 052 641)
-                </a>
+                  Explore The Selection
+                </button>
               </div>
             </section>
 
-            <section className="max-w-2xl mx-auto text-center border-t border-b border-stone-200/60 py-12 px-4">
-              <h2 className="text-xs font-bold tracking-[0.25em] uppercase text-stone-400 mb-6">The Legacy of Stall 12</h2>
-              <div className="space-y-6 text-stone-800 font-light text-sm md:text-base leading-relaxed text-left max-w-xl mx-auto">
-                <p>
-                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, <span className="font-semibold text-stone-950 underline decoration-stone-300 underline-offset-4">Rose Achieng Oyugi</span>, affectionately recognized throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Known equally for her business discipline and her trusted role as a community conflict resolver, she anchored a permanent standard of integrity in the marketplace.
+            {/* HIGH-END SIMPLIFIED INTRODUCTION HERO */}
+            <section className="grid md:grid-cols-2 gap-12 items-center border-t border-stone-200/60 pt-16">
+              <div className="space-y-4">
+                <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-stone-400 block">The Legacy Blueprint</span>
+                <h2 className="text-xl md:text-2xl font-light tracking-tight text-stone-950 uppercase">The Matriarchal Standard</h2>
+                <p className="text-stone-600 text-sm font-light leading-relaxed">
+                  Founded by <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span> (popularly known as Mama Otieno), Stall 12 was built on an unyielding discipline for premium lake curation and trusted marketplace governance. Today, Lorine maintains complete administrative custody over operations, preserving a seamless standard of elite handling and strict logistical hygiene.
                 </p>
-                <p>
-                  Today, **Lorine fully runs and manages the operations**, continuing a lineage born from dawn lake runs and hand-carved excellence. Under her strict oversight, the foundational parameters of top-tier handling and pristine hygiene remain completely absolute.
-                </p>
+                <div className="pt-2">
+                  <button
+                    onClick={() => setCurrentPage('about')}
+                    className="text-[10px] font-bold tracking-[0.15em] uppercase text-stone-950 hover:opacity-60 transition-all border-b border-stone-950 pb-1"
+                  >
+                    Review Historical Chronicle
+                  </button>
+                </div>
               </div>
-              <button
-                onClick={() => setCurrentPage('about')}
-                className="mt-8 text-xs font-bold tracking-[0.15em] uppercase text-stone-950 hover:opacity-70 transition-all border-b border-stone-950 pb-1"
-              >
-                Read Our History
-              </button>
+              <div className="bg-stone-100 p-8 rounded border border-stone-200/40 space-y-6">
+                <div className="space-y-1">
+                  <h4 className="text-[10px] font-bold tracking-widest text-stone-400 uppercase">Institutional Supply Targets</h4>
+                  <p className="text-xs font-serif italic text-stone-600">Trusted bulk procurement partner to regional pillars:</p>
+                </div>
+                <div className="grid grid-cols-2 gap-4 border-t border-stone-200/60 pt-4">
+                  <div>
+                    <span className="text-xs font-medium text-stone-950 block">Kabarak University</span>
+                    <span className="text-[10px] text-stone-400 uppercase tracking-wider block mt-0.5">Wholesale Logistics</span>
+                  </div>
+                  <div>
+                    <span className="text-xs font-medium text-stone-950 block">Egerton University</span>
+                    <span className="text-[10px] text-stone-400 uppercase tracking-wider block mt-0.5">Bulk Procurement</span>
+                  </div>
+                </div>
+              </div>
             </section>
           </div>
         )}
@@ -315,7 +337,6 @@ export default function App() {
           </div>
         )}
 
-        {/* HIGH-GRADE HERITAGE STORY - HARD KEY GUARANTEED */}
         {currentPage === 'about' && (
           <div className="max-w-3xl mx-auto px-4 py-16 space-y-12">
             <div className="text-center">
@@ -327,7 +348,7 @@ export default function App() {
               <div>
                 <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Matriarch & Leader: Rose Achieng Oyugi</h3>
                 <p className="mb-4">
-                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span> widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
+                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span>, widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
                 </p>
                 <p>
                   Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Her voice brought structural balance to the market marketplace. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside large, traditional insulated brown transit containers.
@@ -360,24 +381,85 @@ export default function App() {
           </div>
         )}
 
+        {/* MUSEUM-GRADE LUXURY LOCATION & HOURS LAYOUT */}
         {currentPage === 'location' && (
-          <div className="max-w-2xl mx-auto px-4 py-12">
-            <h1 className="text-2xl font-bold tracking-wide text-center text-stone-900 mb-8 uppercase">Location & Hours</h1>
-            <div className="bg-white border border-stone-200 p-6 rounded shadow-sm space-y-6">
-              <div>
-                <h2 className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">Physical Address</h2>
-                <p className="text-stone-900 font-medium text-sm">Location: Nakuru Top Market, Stall 12, Nakuru, Kenya</p>
+          <div className="max-w-5xl mx-auto px-6 py-16 md:py-24 space-y-16 animate-fadeIn">
+            <div className="text-center max-w-xl mx-auto space-y-3">
+              <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-stone-400 block">Trading Floor Directory</span>
+              <h1 className="text-2xl md:text-3xl font-light tracking-wide text-stone-950 uppercase">Location & Access</h1>
+              <div className="h-[1px] w-12 bg-stone-300 mx-auto mt-4"></div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto items-stretch">
+              
+              {/* CARD 1: GEOGRAPHIC PARAMS */}
+              <div className="bg-white border border-stone-200/80 p-10 rounded shadow-sm flex flex-col justify-between space-y-8">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-3 text-stone-400 border-b border-stone-100 pb-4">
+                    <MapPin className="h-4 w-4 stroke-[1.5]" />
+                    <h2 className="text-[10px] font-bold tracking-[0.2em] uppercase text-stone-950">Physical Destination</h2>
+                  </div>
+                  <div className="space-y-2">
+                    <span className="text-xs font-bold text-stone-400 block uppercase tracking-wider">Stall Assignment</span>
+                    <p className="text-stone-950 font-medium text-base leading-snug">
+                      Nakuru Top Market, Stall 12<br />
+                      Nakuru, Kenya
+                    </p>
+                  </div>
+                  <div className="space-y-2 pt-2">
+                    <span className="text-xs font-bold text-stone-400 block uppercase tracking-wider">Digital Mapping Directory</span>
+                    <p className="text-stone-600 text-xs font-light leading-relaxed">
+                      Listed globally across location indexes as <span className="font-medium text-stone-950">“Lorine's Fish and Fish Products – Nakuru Top Market Stall 12”</span> for accurate turn-by-turn routing parameters.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-4">
+                  <a 
+                    href="https://maps.google.com/?q=Lorine's+Fish+and+Fish+Products+Nakuru+Top+Market+Stall+12"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center space-x-2 bg-stone-950 text-white font-medium text-[10px] tracking-[0.15em] uppercase py-3.5 rounded hover:bg-stone-800 transition-colors"
+                  >
+                    <Compass className="h-3 w-3 stroke-[2]" />
+                    <span>Initialize Map Routing</span>
+                  </a>
+                </div>
               </div>
-              <div className="border-t border-stone-100 pt-4">
-                <h2 className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">Opening Hours</h2>
-                <p className="text-stone-900 font-medium text-sm">Opening hours: Monday–Saturday, 9:00 AM – 8:00 PM</p>
+
+              {/* CARD 2: TEMPORAL BOUNDARIES */}
+              <div className="bg-white border border-stone-200/80 p-10 rounded shadow-sm flex flex-col justify-between space-y-8">
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-3 text-stone-400 border-b border-stone-100 pb-4">
+                    <Clock className="h-4 w-4 stroke-[1.5]" />
+                    <h2 className="text-[10px] font-bold tracking-[0.2em] uppercase text-stone-950">Operational Windows</h2>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-baseline border-b border-stone-100/60 pb-2">
+                      <span className="text-xs font-medium text-stone-950">Monday – Saturday</span>
+                      <span className="text-xs font-mono text-stone-600">09:00 AM – 08:00 PM</span>
+                    </div>
+                    <div className="flex justify-between items-baseline text-stone-400">
+                      <span className="text-xs font-light">Sunday Curation</span>
+                      <span className="text-[10px] tracking-widest uppercase font-bold">Closed</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2 pt-4">
+                    <span className="text-xs font-bold text-stone-400 block uppercase tracking-wider">Procurement Advisory</span>
+                    <p className="text-stone-600 text-xs font-light leading-relaxed">
+                      Fresh whole lots and specialized fillets arrive daily directly from the morning lake collection. Clients requiring high-volume institutional metrics or specialized cuts are advised to schedule pick-up arrangements at least 24 hours in advance.
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-4">
+                  <a 
+                    href="tel:0714052641"
+                    className="w-full inline-flex items-center justify-center bg-transparent border border-stone-200 text-stone-800 font-medium text-[10px] tracking-[0.15em] uppercase py-3.5 rounded hover:bg-stone-50 transition-colors"
+                  >
+                    Verify Daily Inventory Status
+                  </a>
+                </div>
               </div>
-              <div className="border-t border-stone-100 pt-4">
-                <h2 className="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">Maps Directory Navigation</h2>
-                <p className="text-stone-700 text-sm leading-relaxed">
-                  You can find us on Google Maps as <span className="font-semibold text-stone-900">“Lorine's Fish and Fish Products – Nakuru Top Market Stall 12”</span>
-                </p>
-              </div>
+
             </div>
           </div>
         )}
