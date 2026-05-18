@@ -206,7 +206,7 @@ export default function App() {
               <h2 className="text-xs font-bold tracking-[0.25em] uppercase text-stone-400 mb-6">The Legacy of Stall 12</h2>
               <div className="space-y-6 text-stone-800 font-light text-sm md:text-base leading-relaxed text-left max-w-xl mx-auto">
                 <p>
-                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, affectionately known throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Beginning by preparing hot meals for the market community, she earned a permanent space and anchored her trade on whole, pristine Tilapia.
+                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span>, affectionately recognized throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Known equally for her business discipline and her trusted role as a community conflict resolver, she anchored a permanent standard of integrity in the marketplace.
                 </p>
                 <p>
                   Today, **Lorine fully runs and manages the operations**, continuing a lineage born from dawn lake runs and hand-carved excellence. Under her strict oversight, the foundational parameters of top-tier handling and pristine hygiene remain completely absolute.
@@ -315,7 +315,7 @@ export default function App() {
           </div>
         )}
 
-        {/* HIGH-GRADE HERITAGE STORY */}
+        {/* HIGH-GRADE HERITAGE STORY WITH UPDATED NAME & LEADERSHIP CONTEXT */}
         {currentPage === 'about' && (
           <div className="max-w-3xl mx-auto px-4 py-16 space-y-12">
             <div className="text-center">
@@ -325,12 +325,12 @@ export default function App() {
             
             <div className="bg-white border border-stone-200 p-10 rounded shadow-sm space-y-8 text-stone-800 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
               <div>
-                <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Genesis: Mama Otieno</h3>
+                <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Matriarch & Leader: Rose Achieng Oyugi</h3>
                 <p className="mb-4">
-                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance. Our mother, widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
+                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-semibold text-stone-950">Rose Achieng Oyugi</span>, widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
                 </p>
                 <p>
-                  Upon securing a permanent stall at Nakuru Top Market, she shifted her focus entirely to fresh lake fish, launching exclusively with select whole Tilapia. In those formative years, long-distance supply was a family orchestration. Before modern cooling networks existed, shipments would land directly at our family home in London Estate inside large, traditional insulated brown transit containers. 
+                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside large, traditional insulated brown transit containers.
                 </p>
               </div>
 
@@ -353,7 +353,7 @@ export default function App() {
                   Because the market community, premium hoteliers, and bulk institutions had worked alongside her for years, the operational transition was completely seamless. Today, Stall 12 has expanded its portfolio significantly beyond those early Tilapia runs, serving as an elite wholesale supplier to prominent educational universities like <span className="font-semibold text-stone-950">Kabarak University</span> and <span className="font-semibold text-stone-950">Egerton University</span>, alongside top-tier hospitality destinations throughout Nakuru.
                 </p>
                 <p className="font-serif italic text-stone-500 mt-4">
-                  Generations have changed, but the core mandate established by Mama Otieno remains unalterable: world-class handling, meticulous hygiene, and total product transparency.
+                  Generations have changed, but the core mandate established by Rose Achieng Oyugi remains unalterable: world-class handling, meticulous hygiene, and total product transparency.
                 </p>
               </div>
             </div>
