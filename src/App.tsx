@@ -206,10 +206,10 @@ export default function App() {
               <h2 className="text-xs font-bold tracking-[0.25em] uppercase text-stone-400 mb-6">The Legacy of Stall 12</h2>
               <div className="space-y-6 text-stone-800 font-light text-sm md:text-base leading-relaxed text-left max-w-xl mx-auto">
                 <p>
-                  For over twenty years, our family has anchored a definitive standard of exceptional quality and deep community trust from **Nakuru Top Market, Stall 12**. Two decades of presence means we don't simply supply fish—we handle a foundational culinary pillar that local households, executive chefs, and catering institutions depend upon daily.
+                  Before modern refrigeration altered the industry, our legacy was forged on absolute grit. Our mother, affectionately known throughout Nakuru as **Mama Otieno**, laid the foundation of Stall 12. Beginning by preparing hot meals for the market community, she earned a permanent space and anchored her trade on whole, pristine Tilapia.
                 </p>
                 <p>
-                  Today, **Lorine runs and manages the business**, carrying forward this rich multi-decadal lineage. Under her direct stewardship, every single cut, fillet, and selection is managed with flawless discipline, ensuring the exact same foundational excellence is delivered to your kitchen without compromise.
+                  Today, **Lorine fully runs and manages the operations**, continuing a lineage born from dawn lake runs and hand-carved excellence. Under her strict oversight, the foundational parameters of top-tier handling and pristine hygiene remain completely absolute.
                 </p>
               </div>
               <button
@@ -264,14 +264,12 @@ export default function App() {
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {premiumGoods.map((item, idx) => (
                 <div key={idx} className="bg-white border border-stone-200/80 p-6 rounded shadow-sm flex items-start space-x-6">
-                  {/* Price Plate on Left */}
                   <div className="text-left min-w-[90px] border-r border-stone-100 pr-4 flex-shrink-0">
                     <span className="text-xs font-bold text-stone-400 block uppercase tracking-wider">{item.unit}</span>
                     <span className="text-xl font-bold text-stone-950 tracking-tight block mt-0.5">
                       {item.price !== "Varies" && item.price !== "Custom" ? `KSh ${item.price}` : item.price}
                     </span>
                   </div>
-                  {/* Content on Right */}
                   <div className="flex-grow flex flex-col justify-between h-full min-h-[140px]">
                     <div>
                       <h2 className="text-base font-bold text-stone-950 tracking-wide uppercase">{item.name}</h2>
@@ -317,17 +315,47 @@ export default function App() {
           </div>
         )}
 
+        {/* HIGH-GRADE HERITAGE STORY */}
         {currentPage === 'about' && (
-          <div className="max-w-3xl mx-auto px-4 py-12">
-            <h1 className="text-2xl font-bold tracking-wide text-center text-stone-900 mb-8 uppercase">About Us</h1>
-            <div className="bg-white border border-stone-200 p-8 rounded shadow-sm space-y-6 text-stone-700 text-sm md:text-base leading-relaxed max-w-2xl mx-auto text-left">
-              <p>
-                For over 20 years, our family has been selling fresh fish at <span className="font-semibold text-stone-900">Nakuru Top Market, Stall 12</span>. 
-                Two decades of presence means we don't just supply fish; we uphold a foundational standard of freshness and community trust that has defined our market space for a generation.
-              </p>
-              <p>
-                <span className="font-semibold text-stone-900">Lorine now runs and manages the business</span>, ensuring that the exact same dedication to quality, structural hygiene, and premium selection is delivered with every single client interaction.
-              </p>
+          <div className="max-w-3xl mx-auto px-4 py-16 space-y-12">
+            <div className="text-center">
+              <span className="text-xs font-bold tracking-[0.25em] uppercase text-stone-400 block mb-2">The Chronicle of Stall 12</span>
+              <h1 className="text-3xl font-light tracking-wide text-stone-950 uppercase">Our History</h1>
+            </div>
+            
+            <div className="bg-white border border-stone-200 p-10 rounded shadow-sm space-y-8 text-stone-800 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
+              <div>
+                <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Genesis: Mama Otieno</h3>
+                <p className="mb-4">
+                  Long before modern refrigeration redefined the regional seafood supply chain, our family legacy began on sheer perseverance. Our mother, widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>, initiated this venture with humility, preparing and selling food to the market community.
+                </p>
+                <p>
+                  Upon securing a permanent stall at Nakuru Top Market, she shifted her focus entirely to fresh lake fish, launching exclusively with select whole Tilapia. In those formative years, long-distance supply was a family orchestration. Before modern cooling networks existed, shipments would land directly at our family home in London Estate inside large, traditional insulated brown transit containers. 
+                </p>
+              </div>
+
+              <div className="border-t border-stone-100 pt-6">
+                <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Family Operations</h3>
+                <p className="mb-4">
+                  Sourcing the finest harvest required relentless execution. Mama Otieno ventured directly to the lakeside to hand-select each catch, frequently accompanied by our father on intensive logistics runs known within the household simply as <span className="italic font-serif">“operations.”</span>
+                </p>
+                <p>
+                  Processing the daily arrival was a collective neighborhood milestone. Together with our childhood neighbors, we gathered to meticulously scale the fish, earning exactly one shilling per fish. It was within this environment that Lorine, along with all her siblings, absorbed the precise discipline of the fish trade—spending afternoons after school and entire holidays sitting at Stall 12, learning how to grade quality by sight and feel.
+                </p>
+              </div>
+
+              <div className="border-t border-stone-100 pt-6">
+                <h3 className="text-xs font-bold tracking-widest text-stone-400 uppercase mb-3">The Seamless Transition</h3>
+                <p className="mb-4">
+                  When our mother fell ill during the critical Covid-19 period, Lorine did not hesitate. She stepped forward immediately to take complete command, preserving the supply lines when local infrastructure was under its greatest stress. Following Mama Otieno's passing in late 2022, Lorine assumed full administrative and operational control. 
+                </p>
+                <p>
+                  Because the market community, premium hoteliers, and bulk institutions had worked alongside her for years, the operational transition was completely seamless. Today, Stall 12 has expanded its portfolio significantly beyond those early Tilapia runs, serving as an elite wholesale supplier to prominent educational universities like <span className="font-semibold text-stone-950">Kabarak University</span> and <span className="font-semibold text-stone-950">Egerton University</span>, alongside top-tier hospitality destinations throughout Nakuru.
+                </p>
+                <p className="font-serif italic text-stone-500 mt-4">
+                  Generations have changed, but the core mandate established by Mama Otieno remains unalterable: world-class handling, meticulous hygiene, and total product transparency.
+                </p>
+              </div>
             </div>
           </div>
         )}
