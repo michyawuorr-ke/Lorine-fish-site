@@ -165,7 +165,7 @@ export default function App() {
             
             {/* HERO ARCHITECTURE */}
             <section className="text-center space-y-6 max-w-3xl mx-auto bg-white border border-stone-200 p-8 md:p-16 rounded shadow-sm relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-stone-900"></div>
+              <div className="absolute top-0 left-0 w-full h.1.5 bg-stone-900"></div>
               
               {/* STALL 12 RE-POSITIONED AS PROMINENT LUXURY BADGE */}
               <div className="inline-flex items-center space-x-2 bg-stone-100 border border-stone-200 px-4 py-1.5 rounded-full mb-2">
@@ -321,7 +321,7 @@ export default function App() {
           </div>
         )}
 
-        {/* 2. PREMIUM SELECTION - CALIBRATED PRICES */}
+        {/* 2. PREMIUM SELECTION */}
         {currentPage === 'fillets' && (
           <div className="max-w-5xl mx-auto px-6 py-16">
             <div className="text-center mb-16">
