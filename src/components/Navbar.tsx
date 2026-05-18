@@ -1,60 +1,63 @@
-import React, { useState } from 'react';
 import { Menu, X, Fish } from 'lucide-react';
+import { useState } from 'react';
 
 interface NavbarProps {
-  currentPage: string;
-  setPage: (page: string) => void;
+  currentPage: 'home' | 'fillets' | 'about';
+  setCurrentPage: (page: 'home' | 'fillets' | 'about') => void;
 }
 
-export default function Navbar({ currentPage, setPage }: NavbarProps) {
+export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
+  const navItems: { id: 'home' | 'fillets' | 'about'; label: string }[] = [
     { id: 'home', label: 'Home' },
-    { id: 'products', label: 'Products' },
-    { id: 'fillets', label: 'Fish Fillets' },
-    { id: 'order', label: 'How to Order' },
-    { id: 'about', label: 'About Us' },
-    { id: 'location', label: 'Location' },
+    { id: 'fillets', label: 'Our Fillets' },
+    { id: 'about', label: 'Our Story' },
   ];
 
-  const handleNav = (id: string) => {
-    setPage(id);
-    setIsOpen(false);
-  };
-
   return (
-    <nav class="bg-blue-900 text-white sticky top-0 z-50 shadow-md">
-      <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        <div class="flex items-center space-x-2 cursor-pointer" onClick={() => handleNav('home')}>
-          <Fish class="h-6 w-6 text-cyan-400" />
-          <span class="font-bold tracking-tight text-sm sm:text-base">Lorine's Fish (Stall 12)</span>
-        </div>
+    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-stone-100">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
+            <Fish className="h-6 w-6 text-amber-700" />
+            <span className="font-semibold text-lg tracking-wider uppercase text-stone-800">Lorine's Fish</span>
+          </div>
+          
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => setCurrentPage(item.id)}
+                className={`text-sm tracking-widest uppercase transition-colors duration-200 ${
+                  currentPage === item.id ? 'text-amber-700 font-medium' : 'text-stone-500 hover:text-stone-900'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
 
-        <div class="hidden md:flex space-x-4 text-sm">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNav(item.id)}
-              class={`px-3 py-2 rounded-md transition ${currentPage === item.id ? 'bg-blue-800 text-cyan-400 font-bold' : 'hover:bg-blue-800 text-slate-200'}`}
-            >
-              {item.label}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-stone-600 focus:outline-none">
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          ))}
+          </div>
         </div>
-
-        <button class="md:hidden p-1" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X class="h-6 w-6" /> : <Menu class="h-6 w-6" />}
-        </button>
       </div>
 
       {isOpen && (
-        <div class="md:hidden bg-blue-950 px-2 pt-2 pb-4 space-y-1 border-t border-blue-800 flex flex-col">
+        <div className="md:hidden bg-white border-b border-stone-100 px-4 pt-2 pb-4 space-y-2">
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleNav(item.id)}
-              class={`text-left w-full px-4 py-2.5 rounded-md text-sm ${currentPage === item.id ? 'bg-blue-800 text-cyan-400 font-bold' : 'text-slate-200'}`}
+              onClick={() => {
+                setCurrentPage(item.id);
+                setIsOpen(false);
+              }}
+              className={`block w-full text-left px-3 py-2 text-base tracking-wider uppercase ${
+                currentPage === item.id ? 'text-amber-700 font-medium' : 'text-stone-600'
+              }`}
             >
               {item.label}
             </button>

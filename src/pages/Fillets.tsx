@@ -1,63 +1,50 @@
-import React from 'react';
-import { MessageSquare, Truck } from 'lucide-react';
+import ProductCard from '../components/ProductCard';
+import { ShoppingBag } from 'lucide-react';
 
 export default function Fillets() {
+  const items = [
+    {
+      name: "Prime Nile Perch Fillet",
+      price: "Ksh 800 / KG",
+      description: "Thick, clean, white-flesh fillets precisely skinned and thoroughly de-boned. Perfect for baking, pan-searing, or classic deep frying.",
+      features: ["100% Boneless", "Skinless", "Daily Catch"]
+    },
+    {
+      name: "Premium Tilapia Strips",
+      price: "Ksh 750 / KG",
+      description: "Delicately scaled and portioned tilapia fillets. Mild flavor profiling, clean texture, and highly versatile for quick family dinners.",
+      features: ["Hand-Carved", "Lean Cut", "Freshwater sourced"]
+    }
+  ];
+
   return (
-    <div class="max-w-4xl mx-auto px-4 py-8">
-      <div class="text-center mb-8">
-        <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Our Main Product: Fish Fillets</h2>
-        <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl mx-auto">
-          Perfect for hotels, restaurants, event caterers, schools, and universities. We maintain consistent inventories for reliable procurement.
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="text-center max-w-xl mx-auto mb-12">
+        <h1 className="text-3xl font-light tracking-wide text-stone-900 mb-4">Our Available Cuts</h1>
+        <p className="text-stone-500 text-sm font-light">
+          Browse through our curated menu of fresh, cleanly prepared portions. Select an item to initiate custom packaging directly with Lorine.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-center mb-2">
-              <h3 class="font-extrabold text-slate-900 text-lg">Nile Perch Fillets</h3>
-              <span class="bg-blue-100 text-blue-800 text-sm font-black px-2.5 py-1 rounded-lg">KSh 1,100/kg</span>
-            </div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Premium bone-out white fillets sourced cleanly from Lake Victoria. Highly demanded by institutional kitchens for high structural yield and culinary versatility.
-            </p>
-          </div>
-          <div class="mt-4 pt-4 border-t border-slate-100">
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Core Wholesale Asset</span>
-          </div>
-        </div>
-
-        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-center mb-2">
-              <h3 class="font-extrabold text-slate-900 text-lg">Tilapia Fillets</h3>
-              <span class="bg-blue-100 text-blue-800 text-sm font-black px-2.5 py-1 rounded-lg">KSh 1,700/kg</span>
-            </div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Carefully skinned, clean-tasting premium fillets. Handled meticulously to preserve delicate cellular freshness required for high-end hospitality serving configurations.
-            </p>
-          </div>
-          <div class="mt-4 pt-4 border-t border-slate-100">
-            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-2">Hospitality Grade</span>
-          </div>
-        </div>
+      <div className="grid md:grid-cols-2 gap-8 mb-16">
+        {items.map((item, idx) => (
+          <ProductCard key={idx} {...item} />
+        ))}
       </div>
 
-      <div class="bg-blue-900 text-white p-5 rounded-xl flex flex-col sm:flex-row gap-4 items-center justify-between mb-8">
-        <div class="flex items-center gap-3">
-          <Truck class="h-8 w-8 text-cyan-400 shrink-0" />
-          <div>
-            <h4 class="font-bold text-sm sm:text-base">Bulk Distribution Logistics</h4>
-            <p class="text-xs text-blue-200">Deliveries are cleanly coordinated and available for approved wholesale orders.</p>
-          </div>
-        </div>
+      <div className="bg-stone-900 text-white p-8 md:p-12 text-center max-w-3xl mx-auto">
+        <ShoppingBag className="h-8 w-8 text-amber-500 mx-auto mb-4" />
+        <h2 className="text-xl font-light tracking-wider uppercase mb-2">Need a custom bulk configuration?</h2>
+        <p className="text-stone-400 text-xs tracking-wide leading-relaxed max-w-md mx-auto mb-6 font-light">
+          We cater to custom orders, large family events, and restaurants. Speak directly with us for bespoke pricing structures.
+        </p>
         <a
-          href="https://wa.me/254714052641?text=Hi%20Lorine,%20I%20want%20to%20inquire%20about%20wholesale%20fillet%20deliveries."
+          href="https://wa.me/254711223344?text=Hello%20Lorine%2C%20I%20want%20to%20inquire%20about%20a%20bulk%20fish%20order."
           target="_blank"
           rel="noopener noreferrer"
-          class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg text-xs flex items-center justify-center gap-1.5 whitespace-nowrap transition"
+          className="inline-block bg-amber-700 text-white text-xs tracking-widest uppercase py-3 px-6 hover:bg-amber-800 transition-colors duration-200"
         >
-          <MessageSquare class="h-4 w-4" /> Setup Commercial Contract
+          Inquire Bulk Pricing
         </a>
       </div>
     </div>

@@ -1,45 +1,42 @@
-import React from 'react';
 import { MessageSquare } from 'lucide-react';
 
 interface ProductCardProps {
-  title: string;
+  name: string;
   price: string;
   description: string;
-  placeholderText: string;
-  tags: string[];
+  features: string[];
 }
 
-export default function ProductCard({ title, price, description, placeholderText, tags }: ProductCardProps) {
+export default function ProductCard({ name, price, description, features }: ProductCardProps) {
+  const whatsappMessage = encodeURIComponent(`Hello Lorine, I would like to order the ${name}.`);
+  
   return (
-    <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between">
-      <div>
-        <div class="bg-slate-100 h-36 flex items-center justify-center p-4 text-center border-b border-slate-200">
-          <p class="text-xs text-slate-500 font-mono italic">[{placeholderText}]</p>
+    <div className="bg-white border border-stone-100 overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md">
+      <div className="p-6">
+        <p className="text-xs tracking-widest uppercase text-stone-400 mb-1">Premium Selection</p>
+        <div className="flex justify-between items-baseline mb-4">
+          <h3 className="text-xl font-light text-stone-900 tracking-wide">{name}</h3>
+          <span className="text-lg font-medium text-amber-800">{price}</span>
         </div>
-        <div class="p-4">
-          <div class="flex justify-between items-start gap-2 mb-1">
-            <h3 class="font-bold text-slate-900 text-base">{title}</h3>
-            <span class="text-blue-700 font-extrabold text-sm whitespace-nowrap">{price}</span>
-          </div>
-          <div class="flex gap-1.5 my-2">
-            {tags.map((tag, idx) => (
-              <span key={idx} class="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded border border-slate-200 uppercase">
-                {tag}
-              </span>
-            ))}
-          </div>
-          <p class="text-xs text-slate-600 leading-relaxed mt-2">{description}</p>
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {features.map((feature, idx) => (
+            <span key={idx} className="bg-stone-50 text-stone-600 text-[10px] uppercase tracking-wider px-2.5 py-1 border border-stone-100">
+              {feature}
+            </span>
+          ))}
         </div>
-      </div>
-      <div class="p-4 pt-0">
-        <a
-          href={`https://wa.me/254714052641?text=Hi%20Lorine,%20I%20want%20to%20order%20${encodeURIComponent(title)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg text-xs flex items-center justify-center gap-1.5 transition"
-        >
-          <MessageSquare class="h-4 w-4" /> WhatsApp to Order
-        </a>
+        <p className="text-stone-500 text-sm leading-relaxed mb-6">{description}</p>
+        <div className="pt-2">
+          <a
+            href={`https://wa.me/254711223344?text=${whatsappMessage}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex justify-center items-center space-x-2 bg-stone-900 text-white text-xs tracking-widest uppercase py-3 px-4 hover:bg-stone-800 transition-colors duration-200"
+          >
+            <MessageSquare className="h-4 w-4" />
+            <span>Order via WhatsApp</span>
+          </a>
+        </div>
       </div>
     </div>
   );
