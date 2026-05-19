@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Fish, MapPin, Clock, Compass, ArrowRight, Truck, ShieldCheck, Layers, Sparkles } from 'lucide-react';
+import { Menu, X, Fish, MapPin, Clock, Compass, ArrowRight, Truck, ShieldCheck, Layers, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 type Page = 'home' | 'products' | 'fillets' | 'order' | 'about' | 'location';
 
@@ -57,6 +57,7 @@ export default function App() {
   const premiumGoods = [
     {
       name: "Prime Nile Perch Fillet",
+      image: "", // PLACEHOLDER: Drop in your local public asset path or Supabase URL here later
       price: "1,200",
       unit: "per kg",
       sub: "Succulent White Flakes • Countrywide Shipping",
@@ -64,6 +65,7 @@ export default function App() {
     },
     {
       name: "Premium Tilapia Fillet",
+      image: "", // PLACEHOLDER
       price: "1,600",
       unit: "per kg",
       sub: "Hand-Carved Delicate Cuts • Countrywide Shipping",
@@ -71,6 +73,7 @@ export default function App() {
     },
     {
       name: "Fresh Whole Nile Perch",
+      image: "", // PLACEHOLDER
       price: "650",
       unit: "per kg",
       sub: "Glistening Lakeside Catch • Countrywide Shipping",
@@ -78,6 +81,7 @@ export default function App() {
     },
     {
       name: "Fresh Whole Tilapia",
+      image: "", // PLACEHOLDER
       price: "600",
       unit: "per kg",
       sub: "Impeccably Graded Lake Stock • Countrywide Shipping",
@@ -85,6 +89,7 @@ export default function App() {
     },
     {
       name: "Master-Fried Tilapia & Perch",
+      image: "", // PLACEHOLDER
       price: "Varies",
       unit: "by size",
       sub: "Crispy Golden Crust • Sizzling Fresh Daily",
@@ -92,6 +97,7 @@ export default function App() {
     },
     {
       name: "Varieties of Dried Fish",
+      image: "", // PLACEHOLDER
       price: "Varies",
       unit: "by type",
       sub: "Traditional Sun-Cured Depth • Robust Savory Umami",
@@ -260,19 +266,28 @@ export default function App() {
                 </div>
               </div>
               
-              <div className="md:col-span-5 bg-gradient-to-br from-stone-900 to-stone-950 text-stone-100 p-8 rounded shadow-lg space-y-6 border border-stone-800">
-                <div>
-                  <h4 className="text-[10px] font-bold tracking-widest text-amber-400 uppercase">Institutional Supply Scope</h4>
-                  <p className="text-xs font-serif italic text-stone-300 mt-1">Sustaining culinary volume for major tables:</p>
-                </div>
-                <div className="space-y-4 border-t border-stone-800 pt-4">
-                  <div>
-                    <span className="text-sm font-medium text-stone-100 block">Kabarak University</span>
-                    <span className="text-[9px] text-amber-300 tracking-wider block mt-0.5">Wholesale Delivery Vector • Free Transit</span>
+              <div className="md:col-span-5 space-y-6">
+                {/* ZONE A: EDITORIAL HERITAGE MINI-BANNER */}
+                <div className="w-full h-48 bg-stone-900/5 rounded border border-stone-200 flex flex-col items-center justify-center p-6 text-center group relative overflow-hidden">
+                  <div className="absolute inset-0 bg-stone-950/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="p-3 bg-white rounded shadow-sm border border-stone-100 mb-2 text-stone-400 group-hover:text-amber-800 transition-colors duration-500">
+                    <ImageIcon className="w-5 h-5 stroke-[1.2]" />
                   </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-950">Heritage Portrait Slot</span>
+                  <p className="text-[11px] text-stone-500 max-w-[180px] font-light mt-1">Recommended: Lorine at the Stall or Traditional Fish Creels (Osera)</p>
+                </div>
+
+                <div className="bg-gradient-to-br from-stone-900 to-stone-950 text-stone-100 p-6 rounded shadow-lg space-y-4 border border-stone-800">
                   <div>
-                    <span className="text-sm font-medium text-stone-100 block">Egerton University</span>
-                    <span className="text-[9px] text-amber-300 tracking-wider block mt-0.5">Bulk Dietary Supply • Free Transit</span>
+                    <h4 className="text-[10px] font-bold tracking-widest text-amber-400 uppercase">Institutional Supply Scope</h4>
+                  </div>
+                  <div className="space-y-3 border-t border-stone-800 pt-3">
+                    <div>
+                      <span className="text-xs font-medium text-stone-100 block">Kabarak University</span>
+                    </div>
+                    <div>
+                      <span className="text-xs font-medium text-stone-100 block">Egerton University</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -327,29 +342,51 @@ export default function App() {
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-amber-700 block mb-2">Stall 12 Portfolio</span>
               <h1 className="text-3xl font-serif tracking-wide text-stone-950 uppercase">Our Culinary Selection</h1>
             </div>
-            <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
               {premiumGoods.map((item, idx) => (
-                <div key={idx} className="bg-white border border-stone-200 p-6 rounded shadow-sm flex items-start space-x-6 hover:shadow-md transition-shadow">
-                  <div className="text-left min-w-[100px] border-r border-stone-100 pr-4 flex-shrink-0">
-                    <span className="text-[10px] font-bold text-stone-400 block uppercase tracking-wider">{item.unit}</span>
-                    <span className="text-xl font-serif font-bold text-amber-900 tracking-tight block mt-1">
-                      {item.price !== "Varies" ? `KSh ${item.price}` : item.price}
-                    </span>
+                <div key={idx} className="bg-white border border-stone-200 rounded p-4 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow group">
+                  
+                  {/* ZONE B: PREMIUM PRODUCT CARD IMAGE CONTAINER */}
+                  <div className="w-full h-56 bg-stone-100 border border-stone-200/60 rounded mb-4 overflow-hidden flex flex-col items-center justify-center p-4 text-center relative">
+                    {item.image ? (
+                      <img 
+                        src={item.image} 
+                        alt={item.name} 
+                        className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                      />
+                    ) : (
+                      <>
+                        <div className="p-3 bg-white rounded-full border border-stone-200 text-stone-400 group-hover:text-amber-900 transition-colors duration-300 shadow-sm mb-2">
+                          <ImageIcon className="w-4 h-4 stroke-[1.5]" />
+                        </div>
+                        <span className="text-[10px] font-bold text-stone-950 uppercase tracking-widest">Product Image Frame</span>
+                        <span className="text-[9px] text-stone-400 mt-0.5 max-w-[200px] font-light leading-tight">Recommended: Top-down macro of raw fillet or whole lake-fresh batch on clean ice</span>
+                      </>
+                    )}
                   </div>
-                  <div className="flex-grow flex flex-col justify-between h-full min-h-[140px]">
-                    <div>
-                      <h2 className="text-sm font-bold text-stone-950 tracking-wide uppercase">{item.name}</h2>
-                      <span className="text-[11px] text-amber-700 font-medium block mt-0.5">{item.sub}</span>
-                      <p className="text-stone-600 text-xs leading-relaxed mt-2.5 font-light">{item.desc}</p>
+
+                  <div className="flex items-start space-x-6 px-2 pt-2">
+                    <div className="text-left min-w-[90px] border-r border-stone-100 pr-4 flex-shrink-0">
+                      <span className="text-[9px] font-bold text-stone-400 block uppercase tracking-wider">{item.unit}</span>
+                      <span className="text-lg font-serif font-bold text-amber-900 tracking-tight block mt-0.5">
+                        {item.price !== "Varies" ? `KSh ${item.price}` : item.price}
+                      </span>
                     </div>
-                    <a
-                      href="https://wa.me/254714052641"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-4 text-center bg-gradient-to-r from-stone-900 to-stone-950 text-white py-2.5 rounded font-medium text-[10px] tracking-widest uppercase hover:from-amber-950 hover:to-stone-900 transition-colors w-full"
-                    >
-                      Secure Batch via WhatsApp
-                    </a>
+                    <div className="flex-grow flex flex-col justify-between h-full min-h-[120px]">
+                      <div>
+                        <h2 className="text-xs font-bold text-stone-950 tracking-wide uppercase">{item.name}</h2>
+                        <span className="text-[10px] text-amber-700 font-medium block mt-0.5">{item.sub}</span>
+                        <p className="text-stone-600 text-xs leading-relaxed mt-2 font-light">{item.desc}</p>
+                      </div>
+                      <a
+                        href="https://wa.me/254714052641"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block mt-4 text-center bg-gradient-to-r from-stone-900 to-stone-950 text-white py-2.5 rounded font-medium text-[10px] tracking-widest uppercase hover:from-amber-950 hover:to-stone-900 transition-colors w-full"
+                      >
+                        Secure Batch via WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -398,12 +435,6 @@ export default function App() {
                   <li>• <span className="font-semibold text-amber-950">Direct Voice Line:</span> 0714 052 641</li>
                 </ul>
               </div>
-              <div className="border-t border-stone-100 pt-6">
-                <h2 className="text-[10px] font-bold uppercase text-stone-400 tracking-wider mb-2">Standard Countrywide Procurement Blueprint</h2>
-                <blockquote className="bg-stone-50 border-l-4 border-amber-800 p-4 text-stone-700 text-sm italic font-mono rounded-r">
-                  “Hi Lorine, I would like to request bulk delivery of 40 kg fresh whole Tilapia and 20 kg Nile Perch fillets shipped to our hospitality layout outside Nakuru. Please apply the bulk free delivery framework.”
-                </blockquote>
-              </div>
             </div>
           </div>
         )}
@@ -420,10 +451,10 @@ export default function App() {
               <div>
                 <h3 className="text-[10px] font-bold tracking-widest text-amber-800 uppercase mb-3 border-b border-stone-100 pb-2">The Matriarch & Leader: Rose Achieng Oyugi</h3>
                 <p className="mb-4">
-                  Long before modern infrastructure redefined the regional seafood supply chain, our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-serif font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span>—widely and affectionately recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>—initiated this venture with humility, preparing and selling beautiful food to the market community.
+                  Our family legacy began on sheer perseverance and profound local leadership. Our mother, <span className="font-serif font-bold text-stone-950 text-base block my-1">Rose Achieng Oyugi</span>—widely recognized across Nakuru as <span className="font-semibold text-stone-950">Mama Otieno</span>—initiated this venture with humility, preparing and selling beautiful food to the market community.
                 </p>
                 <p>
-                  Mama Otieno was far more than an ambitious trader; she emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside beautiful, traditional fish creels (Osera).
+                  Mama Otieno emerged as an essential pillar of Nakuru Top Market—a natural matriarch trusted implicitly to mediate marketplace complexities and resolve conflicts across the trading floor. Upon securing a permanent stall, she focused her vision on whole fresh fish, launching exclusively with choice Tilapia. In those formative years, shipments landed directly at our family home in London Estate inside beautiful, traditional fish creels (Osera).
                 </p>
               </div>
 
@@ -433,7 +464,7 @@ export default function App() {
                   Sourcing the finest harvest required relentless execution. Mama Otieno ventured directly to the lakeside to hand-select each catch, frequently accompanied by our father on intensive logistics runs known within the household simply as <span className="italic font-serif">“operations.”</span>
                 </p>
                 <p>
-                  Processing the daily arrival was a collective neighborhood milestone. Together with our childhood neighbors, we gathered to meticulously scale the fish, earning exactly one shilling per fish. It was within this environment that Lorine, along with all her siblings, absorbed the precise discipline of the fish trade—spending afternoons after school and entire holidays sitting at Stall 12, learning how to grade quality by sight, touch, and scent.
+                  Processing the daily arrival was a collective neighborhood milestone. It was within this environment that Lorine, along with all her siblings, absorbed the precise discipline of the fish trade—spending afternoons after school and entire holidays sitting at Stall 12, learning how to grade quality by sight, touch, and scent.
                 </p>
               </div>
 
@@ -455,10 +486,20 @@ export default function App() {
 
         {/* GEOGRAPHIC LANDMARK WINDOW */}
         {currentPage === 'location' && (
-          <div className="max-w-5xl mx-auto px-6 py-16 space-y-16">
+          <div className="max-w-5xl mx-auto px-6 py-16 space-y-12">
             <div className="text-center max-w-xl mx-auto space-y-2">
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-amber-700 block">Trading Floor Directory</span>
               <h1 className="text-3xl font-serif tracking-wide text-stone-950 uppercase">Location & Access</h1>
+            </div>
+
+            {/* ZONE C: LANDMARK HEADER BANNER FOR LOCATION */}
+            <div className="max-w-4xl mx-auto w-full h-48 bg-stone-900/5 border border-stone-200 rounded flex flex-col items-center justify-center p-6 text-center group relative overflow-hidden">
+              <div className="absolute inset-0 bg-stone-950/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="p-3 bg-white rounded shadow-sm border border-stone-100 mb-2 text-stone-400 group-hover:text-amber-800 transition-colors duration-500">
+                <ImageIcon className="w-5 h-5 stroke-[1.2]" />
+              </div>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-stone-950">Market Floor Mapping Slot</span>
+              <p className="text-[11px] text-stone-500 max-w-[280px] font-light mt-1">Recommended: Crisp wide lens shot of Nakuru Top Market exterior or the main entrance off Mburu Gichua Road</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto items-stretch">
