@@ -123,7 +123,6 @@ export default function App() {
                   Fresh Fish & Seafood
                 </span>
                 <span className="text-[8px] tracking-[0.35em] uppercase text-amber-400 font-medium mt-1">
-                  Est. 1993 • Stall 12
                 </span>
               </div>
             </div>
