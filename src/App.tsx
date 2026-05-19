@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Fish, MapPin, Clock, Compass, ArrowRight, Truck, ShieldCheck, Layers, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { Menu, X, MapPin, Clock, Compass, ArrowRight, Truck, ShieldCheck, Layers, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 type Page = 'home' | 'products' | 'fillets' | 'order' | 'about' | 'location';
 
@@ -57,7 +57,7 @@ export default function App() {
   const premiumGoods = [
     {
       name: "Prime Nile Perch Fillet",
-      image: "", // PLACEHOLDER: Drop in your local public asset path or Supabase URL here later
+      image: "", 
       price: "1,200",
       unit: "per kg",
       sub: "Succulent White Flakes • Countrywide Shipping",
@@ -65,7 +65,7 @@ export default function App() {
     },
     {
       name: "Premium Tilapia Fillet",
-      image: "", // PLACEHOLDER
+      image: "", 
       price: "1,600",
       unit: "per kg",
       sub: "Hand-Carved Delicate Cuts • Countrywide Shipping",
@@ -73,7 +73,7 @@ export default function App() {
     },
     {
       name: "Fresh Whole Nile Perch",
-      image: "", // PLACEHOLDER
+      image: "", 
       price: "650",
       unit: "per kg",
       sub: "Glistening Lakeside Catch • Countrywide Shipping",
@@ -81,7 +81,7 @@ export default function App() {
     },
     {
       name: "Fresh Whole Tilapia",
-      image: "", // PLACEHOLDER
+      image: "", 
       price: "600",
       unit: "per kg",
       sub: "Impeccably Graded Lake Stock • Countrywide Shipping",
@@ -89,7 +89,7 @@ export default function App() {
     },
     {
       name: "Master-Fried Tilapia & Perch",
-      image: "", // PLACEHOLDER
+      image: "", 
       price: "Varies",
       unit: "by size",
       sub: "Crispy Golden Crust • Sizzling Fresh Daily",
@@ -97,7 +97,7 @@ export default function App() {
     },
     {
       name: "Varieties of Dried Fish",
-      image: "", // PLACEHOLDER
+      image: "", 
       price: "Varies",
       unit: "by type",
       sub: "Traditional Sun-Cured Depth • Robust Savory Umami",
@@ -107,27 +107,36 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#faf8f5] text-stone-900 flex flex-col font-sans selection:bg-amber-900 selection:text-white">
-      {/* BRAND HEADER BAR */}
+      
+      {/* ELEVATED TYPOGRAPHIC BRAND HEADER BAR */}
       <nav className="fixed w-full bg-stone-950 text-stone-100 border-b border-amber-950/20 z-50 shadow-xl">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between h-24 items-center">
-            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
-              <div className="p-2.5 bg-gradient-to-br from-amber-950 to-stone-900 rounded border border-amber-800/30">
-                <Fish className="h-5 w-5 text-amber-200 stroke-[1.5]" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-serif tracking-[0.22em] uppercase text-sm text-stone-100 font-bold">Lorine's Fish</span>
-                <span className="text-[9px] tracking-[0.3em] uppercase text-amber-400 font-medium">Premium Provisioning</span>
+          <div className="flex justify-between h-28 items-center">
+            
+            {/* LUXURY TYPOGRAPHIC INSIGNIA */}
+            <div className="flex items-center cursor-pointer group" onClick={() => setCurrentPage('home')}>
+              <div className="flex flex-col border-l-2 border-amber-500/40 pl-4 py-1">
+                <span className="font-serif tracking-[0.24em] uppercase text-sm font-bold text-stone-100 group-hover:text-amber-200 transition-colors duration-300">
+                  Lorine's
+                </span>
+                <span className="text-[10px] tracking-[0.16em] uppercase text-stone-300 font-light mt-0.5">
+                  Fresh Fish & Seafood
+                </span>
+                <span className="text-[8px] tracking-[0.35em] uppercase text-amber-400 font-medium mt-1">
+                  Est. 1993 • Stall 12
+                </span>
               </div>
             </div>
+
+            {/* MINIMALIST NAV NAVIGATION */}
             <div className="hidden lg:flex space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setCurrentPage(item.id)}
-                  className={`text-[11px] tracking-[0.2em] uppercase transition-all duration-300 relative py-1 ${
+                  className={`text-[11px] tracking-[0.22em] uppercase transition-all duration-300 relative py-1 ${
                     currentPage === item.id 
-                      ? 'text-amber-300 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-amber-400' 
+                      ? 'text-amber-300 font-bold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-amber-400' 
                       : 'text-stone-400 hover:text-amber-200'
                   }`}
                 >
@@ -135,6 +144,7 @@ export default function App() {
                 </button>
               ))}
             </div>
+
             <div className="lg:hidden">
               <button onClick={() => setIsOpen(!isOpen)} className="text-stone-100 focus:outline-none p-1">
                 {isOpen ? <X className="h-6 w-6 stroke-[1.5]" /> : <Menu className="h-6 w-6 stroke-[1.5]" />}
@@ -163,7 +173,7 @@ export default function App() {
       </nav>
 
       {/* MAIN CONTAINER */}
-      <main className="flex-grow pt-24">
+      <main className="flex-grow pt-28">
         
         {/* TEXTURED EDITORIAL HOME PAGE */}
         {currentPage === 'home' && (
