@@ -190,7 +190,7 @@ export default function App() {
               </div>
 
               <h1 className="text-3xl md:text-5xl font-serif tracking-tight text-stone-950 leading-[1.2]">
-                Sovereign Seafood Provisioning <br className="hidden md:inline"/>— Sizzling & Fresh Countrywide
+                Lorine’s Fresh Fish Supply & Delivery <br className="hidden md:inline"/>— Premium Nakuru Seafood Provisioning
               </h1>
               <p className="text-stone-600 text-sm md:text-base max-w-xl mx-auto leading-relaxed font-light">
                 Supplying spectacularly fresh Nile Perch, pristine hand-carved Tilapia cuts, and golden flash-fried culinary landmarks to estates, elite kitchens, and universities across Kenya.
@@ -602,6 +602,24 @@ export default function App() {
           </div>
         )}
       </main>
-    </div>
+    
+      {/* ERGONOMIC MOBILE THUMB-ZONE FLOATING WHATSAPP CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-stone-950/95 backdrop-blur-md border-t border-amber-900/20 p-4 shadow-2xl">
+        <div className="flex items-center justify-between max-w-md mx-auto">
+          <div>
+            <span className="text-[9px] text-amber-400 font-bold uppercase tracking-widest block">Direct Dispatch</span>
+            <span className="text-xs text-stone-200 font-light tracking-wide">Nakuru Town Center Free Delivery</span>
+          </div>
+          <a 
+            href="https://wa.me/254714052641"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gradient-to-r from-amber-700 to-amber-900 text-white px-5 py-3 rounded font-serif text-[10px] tracking-[0.15em] uppercase font-bold shadow-md hover:from-amber-800 transition-all duration-300"
+          >
+            Order via WhatsApp
+          </a>
+        </div>
+      </div>
+</div>
   );
 }
