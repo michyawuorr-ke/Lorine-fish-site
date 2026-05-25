@@ -20,23 +20,23 @@ export default function App() {
     {
       title: "Fish Fillets",
       items: [
-        { name: "Nile Perch Fillets", price: "KSh 1,200 per kg", distribution: "Available Countrywide" },
-        { name: "Tilapia Fillets", price: "KSh 1,600 per kg", distribution: "Available Countrywide" }
+        { name: "Nile Perch Fillets", price: "KSh 1,300 per kg", distribution: "Available Countrywide" },
+        { name: "Tilapia Fillets", price: "KSh 1,700 per kg", distribution: "Available Countrywide" }
       ]
     },
     {
       title: "Fresh Whole Fish",
       items: [
-        { name: "Fresh Whole Nile Perch", price: "KSh 650 per kg", distribution: "Available Countrywide" },
-        { name: "Fresh Whole Tilapia", price: "KSh 600 per kg", distribution: "Available Countrywide" },
-        { name: "Fresh Whole Catfish", price: "KSh 400 per kg", distribution: "Regional Transit" },
-        { name: "Fresh Whole Mad Fish", price: "KSh 400 per kg", distribution: "Regional Transit" }
+        { name: "Fresh Whole Nile Perch", price: "KSh 750 per kg", distribution: "Available Countrywide" },
+        { name: "Fresh Whole Tilapia", price: "KSh 700 per kg", distribution: "Available Countrywide" },
+        { name: "Fresh Whole Catfish", price: "KSh 500 per kg", distribution: "Regional Transit" },
+        { name: "Fresh Whole Mad Fish", price: "KSh 500 per kg", distribution: "Regional Transit" }
       ]
     },
     {
       title: "Cod Liver Oil",
       items: [
-        { name: "Cod Liver Oil – 500 ml", price: "KSh 600 per bottle", distribution: "Available Countrywide" }
+        { name: "Cod Liver Oil – 500 ml", price: "KSh 700 per bottle", distribution: "Available Countrywide" }
       ]
     },
     {
@@ -58,7 +58,7 @@ export default function App() {
     {
       name: "Prime Nile Perch Fillet",
       image: "", 
-      price: "1,200",
+      price: "1,300",
       unit: "per kg",
       sub: "Succulent White Flakes • Countrywide Shipping",
       desc: "Thick-cut, bone-free pristine white fillets handled with absolute care. Beautifully structured, sweet-tasting flesh perfect for baking, pan-searing, or coconut stews."
@@ -66,7 +66,7 @@ export default function App() {
     {
       name: "Premium Tilapia Fillet",
       image: "", 
-      price: "1,600",
+      price: "1,700",
       unit: "per kg",
       sub: "Hand-Carved Delicate Cuts • Countrywide Shipping",
       desc: "Meticulously dressed morning harvest from the lake. Incredibly clean, lean, and tender flavor profile that cooks to absolute melt-in-your-mouth perfection."
@@ -74,7 +74,7 @@ export default function App() {
     {
       name: "Fresh Whole Nile Perch",
       image: "", 
-      price: "650",
+      price: "750",
       unit: "per kg",
       sub: "Glistening Lakeside Catch • Countrywide Shipping",
       desc: "Bright-eyed and silver-scaled daily arrivals straight from the source. Hand-selected for premium density and incredible rich depth of flavor."
@@ -82,7 +82,7 @@ export default function App() {
     {
       name: "Fresh Whole Tilapia",
       image: "", 
-      price: "600",
+      price: "700",
       unit: "per kg",
       sub: "Impeccably Graded Lake Stock • Countrywide Shipping",
       desc: "The true champion of the Kenyan table. Plump, vibrantly fresh, and handled flawlessly from the water straight into our custom chilled transit boxes."
