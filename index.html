@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lorine's Fish Site</title>
+    
+    <!-- Localized SEO Title & Meta Infrastructure -->
+    <title>Lorine's Fresh Fish Supply & Delivery | Nakuru Seafood</title>
+    <meta name="description" content="Order premium fresh fish fillets, whole tilapia, and Nile perch from Lorine's Fresh Fish and Seafood. Free delivery in Nakuru town and estate doorstep dispatch available." />
+    <meta name="keywords" content="fish delivery Nakuru, Lorine fish supply, fresh tilapia Nakuru, Nile perch fillets Kenya, buy fish wholesale Nakuru" />
+    <meta name="author" content="Lorine's Fresh Fish Supply & Delivery" />
+
+    <!-- Open Graph Social Media Protocol Layout -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lorine's Fresh Fish and Seafood | Premium Delivery" />
+    <meta property="og:description" content="Sourcing and delivering pristine lake fish across Nakuru estates and countrywide networks." />
+    <meta property="og:image" content="https://lorine-fish-site.vercel.app/og-cover.jpg" />
+
+    <!-- Google Search Engine Structured Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FishMarket",
+      "name": "Lorine's Fresh Fish Supply & Delivery",
+      "alternativeName": "Lorine's Fresh Fish and Seafood",
+      "description": "Premium wholesale and retail fish supply network operating in Nakuru.",
+      "priceRange": "KSh400-KSh1700",
+      "telephone": "+254714052641",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nakuru",
+        "addressRegion": "Nakuru County",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-0.2833",
+        "longitude": "36.0667"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Nakuru Town" },
+        { "@type": "AdministrativeArea", "name": "Kenya" }
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-stone-50">
+  <body class="bg-stone-50 text-stone-900 antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
