@@ -411,9 +411,26 @@ export default function App() {
             <div className="bg-stone-950 text-stone-100 p-8 rounded shadow-md text-center space-y-3 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-amber-500"></div>
               <span className="text-[9px] tracking-[0.3em] font-bold text-amber-400 uppercase block">Wholesale Incentive System</span>
-              <h2 className="text-xl font-serif tracking-wide uppercase text-white">Free Bulk Freight Destination Logistics</h2>
+              <h2 className="text-xl font-serif tracking-wide uppercase text-white">Subsidized Bulk Freight Logistics</h2>
+            {/* Local Delivery Parameters */}
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="p-5 bg-white border border-stone-200 rounded shadow-sm">
+                <span className="text-[10px] font-[600] uppercase tracking-wider text-amber-800 block mb-1">Town Orders</span>
+                <h3 className="text-sm font-semibold text-stone-950 mb-1">Within Nakuru Town Limits</h3>
+                <p className="text-stone-600 text-xs font-light leading-relaxed">
+                  All daily fresh orders dispatched within the town center enjoy <span className="text-stone-950 font-medium">completely free delivery</span>.
+                </p>
+              </div>
+              <div className="p-5 bg-white border border-stone-200 rounded shadow-sm">
+                <span className="text-[10px] font-[600] uppercase tracking-wider text-amber-800 block mb-1">Estate Delivery</span>
+                <h3 className="text-sm font-semibold text-stone-950 mb-1">Home & Private Residences</h3>
+                <p className="text-stone-600 text-xs font-light leading-relaxed">
+                  Direct doorstep delivery to your private estate or residential home is fulfilled swiftly for a calculated, nominal fair-price fee.
+                </p>
+              </div>
+            </div>
               <p className="text-stone-300 text-xs font-light max-w-lg mx-auto leading-relaxed">
-                High-volume catering assignments designated for educational institutions, corporate workspaces, and premier hotels cross-country are completely exempt from transport fees.
+                High-volume catering assignments for educational institutions, corporate workspaces, and premier hotels cross-country enjoy highly subsidized, fair-rate shipping—ensuring premium logistics at a drastically reduced cost.
               </p>
             </div>
 
